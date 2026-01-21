@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Oshi Wicky — Business Analyst | Power BI Specialist | QA Engineer. Portfolio featuring projects, dashboards, skills, experience and testimonials." />
+  <title>Oshi Wicky | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Decorative background -->
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <!-- Top progress bar -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <header class="header" id="top">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">OW</span>
+        <span class="brand-text">
+          <strong>Oshi Wicky</strong>
+          <small>Business Analyst · Power BI · QA</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#testimonials">Testimonials</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <a class="btn btn-sm btn-primary" href="#contact">Let’s Talk</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO (50vh) -->
+    <section class="hero" aria-label="Intro">
+      <div class="container hero-grid">
+        <div class="hero-left reveal">
+          <p class="pill">
+            <span class="dot" aria-hidden="true"></span>
+            Available for BI / BA / QA projects
+          </p>
+
+          <h1>
+            Oshi Wicky
+            <span class="muted">Business Analyst</span>
+            <span class="muted">Power BI Specialist</span>
+            <span class="muted">QA Engineer</span>
+          </h1>
+
+          <p class="lead">
+            Results-oriented Business Analyst, QA Engineer, and Power BI Specialist with 3+ years of experience delivering
+            data-driven solutions across <strong>healthcare</strong>, <strong>education</strong>, <strong>hospitality</strong>,
+            <strong>telecommunications</strong>, and <strong>insurance</strong>.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-ghost" href="#skills">Explore Skills</a>
+            <button class="btn btn-soft" id="copyEmailBtn" type="button" data-copy="Oshi.tharanga@gmail.com">
+              Copy Email
+            </button>
+          </div>
+
+          <div class="mini-stats" role="list">
+            <div class="stat" role="listitem">
+              <strong>75+ hrs</strong>
+              <span>saved / month</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong>60%</strong>
+              <span>less manual reporting errors</span>
+            </div>
+            <div class="stat" role="listitem">
+              <strong>80%</strong>
+              <span>process effort reduced</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO IMAGE (right) -->
+      <!-- HERO IMAGE (right) -->
+        <div class="hero-right reveal">
+          <!-- ✅ FIXED: only ONE hero-media, and NO floating tags -->
+          <div class="hero-media profile-hero" role="img" aria-label="Profile photo of Oshi Wicky">
+            <img
+              src="assets/profile.png"
+              alt="Oshi Wicky – Business Analyst, Power BI Specialist, QA Engineer"
+              class="profile-img"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#about" aria-label="Scroll to About">
+        <span class="mouse" aria-hidden="true"></span>
+        <span>Scroll</span>
+      </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section section-dark" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Portfolio Introduction</h2>
+          <p>
+            I specialize in requirements gathering, business process optimization, data modeling, and interactive dashboard development,
+            enabling stakeholders to make informed, strategic decisions. This portfolio highlights projects that transform complex business
+            challenges into actionable insights using <strong>Power BI</strong>, <strong>SQL</strong>, <strong>Agile</strong>, and <strong>automation tools</strong>.
+          </p>
+        </div>
+
+        <div class="grid-2 reveal">
+          <article class="card">
+            <h3>Domains of Expertise</h3>
+            <div class="chips">
+              <span class="chip">Healthcare</span>
+              <span class="chip">Insurance</span>
+              <span class="chip">Telecommunications</span>
+              <span class="chip">Education</span>
+              <span class="chip">Hospitality</span>
+            </div>
+            <p class="muted">
+              Comfortable switching contexts quickly and tailoring reporting, documentation, and QA approaches to each domain.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Reporting & Dashboard Experience</h3>
+            <ul class="bullets">
+              <li><strong>Hospitality:</strong> Consolidated Occupancy Rate, ADR, and RevPAR into one executive dashboard.</li>
+              <li><strong>Healthcare:</strong> Admissions, doctor attendance, and billing dashboards for faster response.</li>
+              <li><strong>Education:</strong> Enrolment, attendance, grades, exam trends analytics.</li>
+              <li><strong>Sales & Revenue:</strong> Volume, targets, growth, regional performance tracking.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section alt" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Skills Snapshot</h2>
+          <p>Clean tooling stack with strong delivery skills across analysis, BI, collaboration, and QA.</p>
+        </div>
+
+        <div class="skill-toolbar reveal">
+          <button class="seg active" data-skill-filter="all" type="button">All</button>
+          <button class="seg" data-skill-filter="ba" type="button">Business Analysis</button>
+          <button class="seg" data-skill-filter="bi" type="button">BI / Analytics</button>
+          <button class="seg" data-skill-filter="pm" type="button">PM / Collaboration</button>
+          <button class="seg" data-skill-filter="qa" type="button">Testing</button>
+          <button class="seg" data-skill-filter="db" type="button">Databases</button>
+          <button class="seg" data-skill-filter="dev" type="button">Programming</button>
+        </div>
+
+        <div class="cards-grid reveal" id="skillsGrid">
+          <article class="card skill" data-skill="ba">
+            <h3>Business Analysis & Modelling</h3>
+            <ul class="bullets compact">
+              <li>Microsoft Office Suite</li>
+              <li>Microsoft Visio</li>
+              <li>Bizagi</li>
+              <li>Visual Paradigm</li>
+              <li>Miro</li>
+              <li>Balsamiq</li>
+              <li>Lucidchart</li>
+            </ul>
+          </article>
+
+          <article class="card skill" data-skill="bi">
+            <h3>Data Analytics & BI</h3>
+            <ul class="bullets compact">
+              <li>Microsoft Power BI</li>
+              <li>Data modeling (Star schema, Fact & Dimension)</li>
+              <li>Power Query (ETL, cleansing, transformations)</li>
+              <li>DAX (Measures, Calculated Columns, Time Intelligence)</li>
+              <li>KPI & metric design (GPA, revenue, growth)</li>
+              <li>Storytelling & visualization best practices</li>
+              <li>Power BI Service (publish/share/workspaces)</li>
+            </ul>
+          </article>
+
+          <article class="card skill" data-skill="bi">
+            <h3>Microsoft Excel (Advanced)</h3>
+            <ul class="bullets compact">
+              <li>Advanced formulas</li>
+              <li>Pivot Tables & Pivot Charts</li>
+              <li>Power Query in Excel</li>
+              <li>Data validation & conditional formatting</li>
+              <li>Data cleansing & preparation</li>
+            </ul>
+          </article>
+
+          <article class="card skill" data-skill="pm">
+            <h3>Project Management & Collaboration</h3>
+            <ul class="bullets compact">
+              <li>Jira, Confluence</li>
+              <li>Microsoft Teams, Slack</li>
+              <li>Redmine, Zoom</li>
+              <li>Trello</li>
+            </ul>
+          </article>
+
+          <article class="card skill" data-skill="qa">
+            <h3>Software Testing Tools</h3>
+            <ul class="bullets compact">
+              <li>TestRail</li>
+              <li>SOAP UI</li>
+              <li>Chorus</li>
+              <li>Postman</li>
+            </ul>
+          </article>
+
+          <article class="card skill" data-skill="db">
+            <h3>Databases</h3>
+            <ul class="bullets compact">
+              <li>MySQL</li>
+              <li>SQL Server (SSMS)</li>
+              <li>Oracle</li>
+              <li>Airtable</li>
+              <li>AS400 (IBM iSeries)</li>
+              <li>IBM Db2 (via DBeaver)</li>
+            </ul>
+          </article>
+
+          <article class="card skill" data-skill="dev">
+            <h3>Programming</h3>
+            <ul class="bullets compact">
+              <li>Java</li>
+              <li>Android</li>
+              <li>HTML</li>
+              <li>CSS</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="section-split reveal">
+          <div class="card">
+            <h3>Core Competencies</h3>
+            <div class="grid-2">
+              <div>
+                <h4>Hard Skills</h4>
+                <ul class="bullets">
+                  <li><strong>Requirements Analysis & Documentation:</strong> BRDs, UML, user stories, acceptance criteria.</li>
+                  <li><strong>Data Analysis & BI:</strong> Power BI, SQL, Advanced Excel; automated reporting workflows.</li>
+                  <li><strong>Process Modeling & Automation:</strong> BPMN/UML + low-code automation (Airtable + Zapier).</li>
+                </ul>
+              </div>
+              <div>
+                <h4>Soft Skills</h4>
+                <ul class="bullets">
+                  <li><strong>Stakeholder communication:</strong> Workshops, feedback sessions, UAT alignment.</li>
+                  <li><strong>Analytical problem-solving:</strong> Root cause focus; up to 70% efficiency improvements.</li>
+                  <li><strong>Adaptability & teamwork:</strong> Agile delivery, mentoring, cross-industry experience.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="card callout">
+            <h3>Process Enhancement Highlights</h3>
+            <ul class="bullets">
+              <li><strong>Social Media Automation:</strong> Reduced posting effort by 80% using Zapier.</li>
+              <li><strong>Hotel & HR Optimisation:</strong> Improved efficiency by 70% with Power BI dashboards.</li>
+              <li><strong>Capstone Workflow Digitisation:</strong> Real-time status tracking & streamlined handling.</li>
+              <li><strong>Enterprise QA Standardisation (Virtusa):</strong> Improved defect detection efficiency by 8%.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Key Projects</h2>
+          <p>Selected work across automation, web portal digitisation, BI dashboards, and healthcare solutions.</p>
+        </div>
+
+        <div class="cards-grid reveal">
+          <article class="card project" data-title="Student Partnerships – Airtable Process Optimisation"
+                   data-desc="Optimized social media management, client communication, project tracking, and graduate program administration. Implemented automated Airtable databases and workflows, improving data accuracy and significantly reducing manual effort."
+                   data-tags="Automation,Airtable,Zapier,Operations">
+            <div class="project-top">
+              <h3>Student Partnerships</h3>
+              <span class="badge">Automation</span>
+            </div>
+            <p>Automated Airtable workflows integrated with Zapier to reduce operational effort.</p>
+            <div class="meta">
+              <span class="pill-sm">Saved 75+ staff hours/month</span>
+              <span class="pill-sm">$24k+ value in 6 months</span>
+            </div>
+            <button class="btn btn-soft btn-sm openProject" type="button">View details</button>
+          </article>
+
+          <article class="card project" data-title="Swinburne Capstone Project Management Web Portal"
+                   data-desc="Digitized and automated the project proposal lifecycle using a PHP and MySQL web portal. Developed process flows, user stories, and functional specifications, enabling faster decision-making and improved administrative efficiency."
+                   data-tags="BA,Web Portal,PHP,MySQL,Agile">
+            <div class="project-top">
+              <h3>Capstone Web Portal</h3>
+              <span class="badge">Digitisation</span>
+            </div>
+            <p>End-to-end proposal lifecycle tracking with structured requirements and workflows.</p>
+            <div class="meta">
+              <span class="pill-sm">+70% handling efficiency</span>
+              <span class="pill-sm">Real-time status</span>
+            </div>
+            <button class="btn btn-soft btn-sm openProject" type="button">View details</button>
+          </article>
+
+          <article class="card project" data-title="Hotel Management System"
+                   data-desc="Led requirements analysis and KPI design for room booking, guest management, billing, and reporting. Improved operational efficiency by 60% and enhanced executive visibility into performance metrics."
+                   data-tags="KPI,Hospitality,Requirements,Power BI">
+            <div class="project-top">
+              <h3>Hotel Management System</h3>
+              <span class="badge">KPI Design</span>
+            </div>
+            <p>Executive dashboard metrics (Occupancy, ADR, RevPAR) + operational reporting.</p>
+            <div class="meta">
+              <span class="pill-sm">+60% efficiency</span>
+              <span class="pill-sm">Better visibility</span>
+            </div>
+            <button class="btn btn-soft btn-sm openProject" type="button">View details</button>
+          </article>
+
+          <article class="card project" data-title="Ayurvedic Medical App"
+                   data-desc="Gathered and documented requirements for a healthcare mobile application focused on patient management and treatment tracking. Improved appointment scheduling efficiency by 30% and enhanced adherence to treatment plans."
+                   data-tags="Healthcare,Mobile App,Requirements,Workflows">
+            <div class="project-top">
+              <h3>Ayurvedic Medical App</h3>
+              <span class="badge">Healthcare</span>
+            </div>
+            <p>Requirements + workflows for patient management, tracking, and scheduling.</p>
+            <div class="meta">
+              <span class="pill-sm">+30% scheduling</span>
+              <span class="pill-sm">Higher adherence</span>
+            </div>
+            <button class="btn btn-soft btn-sm openProject" type="button">View details</button>
+          </article>
+
+          <article class="card project" data-title="Student Management System"
+                   data-desc="Delivered a system managing enrolment, attendance, grades, timetables, and reporting. Automated reporting workflows and reduced administrative workload by 50%."
+                   data-tags="Education,Reporting,Automation,Process">
+            <div class="project-top">
+              <h3>Student Management System</h3>
+              <span class="badge">Education</span>
+            </div>
+            <p>Enrolment + attendance + grades + reporting, with automation to cut workload.</p>
+            <div class="meta">
+              <span class="pill-sm">-50% admin workload</span>
+              <span class="pill-sm">Automated reports</span>
+            </div>
+            <button class="btn btn-soft btn-sm openProject" type="button">View details</button>
+          </article>
+
+          <article class="card project" data-title="Eye Care – Eye Illness Detection App"
+                   data-desc="Business Analyst for the first Google Play app capable of detecting multiple eye conditions. Collaborated with medical experts to design diagnostic workflows achieving approximately 90% detection accuracy."
+                   data-tags="BA,Healthcare,Diagnostics,Workflows">
+            <div class="project-top">
+              <h3>Eye Illness Detection App</h3>
+              <span class="badge">Diagnostics</span>
+            </div>
+            <p>Diagnostic workflow design with medical experts for multi-condition detection.</p>
+            <div class="meta">
+              <span class="pill-sm">~90% detection accuracy</span>
+              <span class="pill-sm">Google Play</span>
+            </div>
+            <button class="btn btn-soft btn-sm openProject" type="button">View details</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS (7 screenshots) -->
+    <section class="section alt" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Testimonials</h2>
+          <p>7 testimonial screenshots from stakeholders and collaborators. Click to view full-size.</p>
+        </div>
+
+        <div class="cards-grid reveal testimonial-grid">
+          <!-- t1 -->
+          <article class="card testimonial">
+            <div class="testimonial-img">
+              <img src="assets/testimonials/t1.png" alt="Testimonial screenshot t1" loading="lazy" />
+            </div>
+            <button class="btn btn-soft btn-sm lightboxBtn" type="button" data-img="assets/testimonials/t1.png" data-caption="Testimonial t1">
+              View Full
+            </button>
+          </article>
+
+          <!-- t2 -->
+          <article class="card testimonial">
+            <div class="testimonial-img">
+              <img src="assets/testimonials/t2.png" alt="Testimonial screenshot t2" loading="lazy" />
+            </div>
+            <button class="btn btn-soft btn-sm lightboxBtn" type="button" data-img="assets/testimonials/t2.png" data-caption="Testimonial t2">
+              View Full
+            </button>
+          </article>
+
+          <!-- t3 -->
+          <article class="card testimonial">
+            <div class="testimonial-img">
+              <img src="assets/testimonials/t3.png" alt="Testimonial screenshot t3" loading="lazy" />
+            </div>
+            <button class="btn btn-soft btn-sm lightboxBtn" type="button" data-img="assets/testimonials/t3.png" data-caption="Testimonial t3">
+              View Full
+            </button>
+          </article>
+
+          <!-- t4 -->
+          <article class="card testimonial">
+            <div class="testimonial-img">
+              <img src="assets/testimonials/t4.png" alt="Testimonial screenshot t4" loading="lazy" />
+            </div>
+            <button class="btn btn-soft btn-sm lightboxBtn" type="button" data-img="assets/testimonials/t4.png" data-caption="Testimonial t4">
+              View Full
+            </button>
+          </article>
+
+          <!-- t5 -->
+          <article class="card testimonial">
+            <div class="testimonial-img">
+              <img src="assets/testimonials/t5.png" alt="Testimonial screenshot t5" loading="lazy" />
+            </div>
+            <button class="btn btn-soft btn-sm lightboxBtn" type="button" data-img="assets/testimonials/t5.png" data-caption="Testimonial t5">
+              View Full
+            </button>
+          </article>
+
+          <!-- t6 -->
+          <article class="card testimonial">
+            <div class="testimonial-img">
+              <img src="assets/testimonials/t6.png" alt="Testimonial screenshot t6" loading="lazy" />
+            </div>
+            <button class="btn btn-soft btn-sm lightboxBtn" type="button" data-img="assets/testimonials/t6.png" data-caption="Testimonial t6">
+              View Full
+            </button>
+          </article>
+
+          <!-- t7 -->
+          <article class="card testimonial">
+            <div class="testimonial-img">
+              <img src="assets/testimonials/t7.png" alt="Testimonial screenshot t7" loading="lazy" />
+            </div>
+            <button class="btn btn-soft btn-sm lightboxBtn" type="button" data-img="assets/testimonials/t7.png" data-caption="Testimonial t7">
+              View Full
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Professional Experience</h2>
+          <p>Strong delivery across Agile BA, BI dashboards, and QA execution.</p>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="t-item">
+            <div class="t-dot" aria-hidden="true"></div>
+            <div class="t-card">
+              <h3>Business Analyst <span class="muted">| Student Partnerships (Melbourne, Australia)</span></h3>
+              <ul class="bullets">
+                <li>Automated workflows, led Agile ceremonies, gathered requirements, delivered executive insights.</li>
+                <li><strong>Impact:</strong> Saved 75+ staff hours/month and generated $24k+ value within 6 months.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-dot" aria-hidden="true"></div>
+            <div class="t-card">
+              <h3>Business Analyst <span class="muted">| Swinburne University of Technology</span></h3>
+              <ul class="bullets">
+                <li>Designed and implemented a scalable Capstone Project portal.</li>
+                <li><strong>Impact:</strong> Improved handling efficiency by 70%.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-dot" aria-hidden="true"></div>
+            <div class="t-card">
+              <h3>Quality Assurance Engineer <span class="muted">| Virtusa (Sri Lanka)</span></h3>
+              <ul class="bullets">
+                <li>Executed 3,000+ test cases, reduced production defects by 40%, mentored junior QA engineers.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-dot" aria-hidden="true"></div>
+            <div class="t-card">
+              <h3>IT Tutor <span class="muted">| Swinburne University of Technology</span></h3>
+              <ul class="bullets">
+                <li>Delivered User-Centred Design and IT Project Management content; mentored students for industry readiness.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="cards-grid reveal">
+          <article class="card">
+            <h3>Education</h3>
+            <ul class="bullets">
+              <li><strong>Master of Information Technology (Professional Computing)</strong> – Swinburne University<br>
+                <span class="muted">GPA: 3.5/4.0 · Golden Key Award</span></li>
+              <li><strong>Bachelor of Information Technology (Honours)</strong> – SLIIT<br>
+                <span class="muted">GPA: 3.5/4.0 · Bronze Award (Eye Disease Detection App)</span></li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Certifications</h3>
+            <div class="chips">
+              <span class="chip">Microsoft Power Apps Mastery</span>
+              <span class="chip">Power BI Beginner to Pro</span>
+              <span class="chip">ACSPO</span>
+              <span class="chip">CSM</span>
+              <span class="chip">CSPO</span>
+              <span class="chip">IIBA Member</span>
+              <span class="chip">ECBA</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Contact</h2>
+          
+        </div>
+
+        <div class="contact-grid reveal">
+          <div class="card contact-card">
+            <h3>Get in touch</h3>
+
+            <div class="contact-item">
+              <span class="icon" aria-hidden="true">📧</span>
+              <div>
+                <p class="label">Email</p>
+                <a href="mailto:Oshi.tharanga@gmail.com" class="value">Oshi.tharanga@gmail.com</a>
+              </div>
+              <button class="mini-btn" type="button" data-copy="Oshi.tharanga@gmail.com">Copy</button>
+            </div>
+
+            <div class="contact-item">
+              <span class="icon" aria-hidden="true">📞</span>
+              <div>
+                <p class="label">Phone</p>
+                <a href="tel:+61424159226" class="value">0424 159 226</a>
+              </div>
+              <button class="mini-btn" type="button" data-copy="0424159226">Copy</button>
+            </div>
+
+            <div class="contact-item">
+              <span class="icon" aria-hidden="true">🔗</span>
+              <div>
+                <p class="label">LinkedIn</p>
+                <a class="value" href="https://www.linkedin.com/in/oshiwicky/" target="_blank" rel="noopener noreferrer">
+                  linkedin.com/in/oshiwicky/
+                </a>
+              </div>
+              <a class="mini-btn link" href="https://www.linkedin.com/in/oshiwicky/" target="_blank" rel="noopener noreferrer">Open</a>
+            </div>
+
+            <p class="muted small">
+              
+            </p>
+          </div>
+
+          <div class="card contact-card">
+            <h3>Quick message</h3>
+            <form class="form" id="contactForm">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" placeholder="your@email.com" required />
+              </label>
+              <label>
+                <span>Message</span>
+                <textarea name="message" rows="5" placeholder="Tell me what you need…" required></textarea>
+              </label>
+              <button class="btn btn-primary" type="submit">Create Email Draft</button>
+              <p class="muted small" id="formHint">
+               
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Oshi Wicky.</p>
+        <a class="back-top" href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <!-- PROJECT MODAL -->
+    <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project details">
+      <div class="modal-overlay" data-close="true"></div>
+      <div class="modal-panel" role="document">
+        <button class="modal-close" type="button" aria-label="Close" data-close="true">✕</button>
+        <h3 id="modalTitle">Project</h3>
+        <p id="modalDesc" class="muted"></p>
+        <div id="modalTags" class="chips" aria-label="Project tags"></div>
+        <div class="modal-actions">
+          <a class="btn btn-ghost" href="#contact" data-close="true">Discuss this project</a>
+          <button class="btn btn-soft" type="button" data-close="true">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIAL LIGHTBOX -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <div class="lightbox-overlay" data-lb-close="true"></div>
+      <div class="lightbox-panel" role="dialog" aria-modal="true" aria-label="Testimonial full view">
+        <button class="modal-close" type="button" aria-label="Close" data-lb-close="true">✕</button>
+        <figure>
+          <img id="lightboxImg" src="" alt="Testimonial full view" />
+          <figcaption id="lightboxCap" class="muted small"></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <noscript>
+      <div class="noscript">
+        
+      </div>
+    </noscript>
+  </main>
+</body>
+</html>
