@@ -108,13 +108,18 @@
   // Reveal on scroll
   // ======================
   const revealEls = $$(".reveal");
-  const revealIO = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("visible");
-    });
-  }, { threshold: 0.12 });
+  if ("IntersectionObserver" in window) {
+    const revealIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.12 });
 
-  revealEls.forEach(el => revealIO.observe(el));
+    revealEls.forEach(el => revealIO.observe(el));
+  } else {
+    // fallback
+    revealEls.forEach(el => el.classList.add("visible"));
+  }
 
   // ======================
   // Scrollspy (ACTIVE link highlight) — FIXED
@@ -137,7 +142,7 @@
     const offset = headerOffset() + 12;
     const scrollPos = window.scrollY + offset;
 
-    // ✅ If user is near the bottom, force CONTACT active
+    // If user is near the bottom, force CONTACT active
     const doc = document.documentElement;
     const nearBottom = (window.innerHeight + window.scrollY) >= (doc.scrollHeight - 4);
     if (nearBottom) {
@@ -176,8 +181,9 @@
   if (copyEmailBtn) {
     copyEmailBtn.addEventListener("click", () => {
       copyToClipboard(copyEmailBtn.dataset.copy);
+      const old = copyEmailBtn.textContent;
       copyEmailBtn.textContent = "Copied!";
-      setTimeout(() => (copyEmailBtn.textContent = "Copy Email"), 1200);
+      setTimeout(() => (copyEmailBtn.textContent = old || "Copy Email"), 1200);
     });
   }
 
@@ -199,21 +205,23 @@
   const modalTags = $("#modalTags");
 
   function openModal(card) {
-    if (!projectModal) return;
+    if (!projectModal || !card) return;
     const title = card.dataset.title || "Project";
     const desc = card.dataset.desc || "";
     const tags = (card.dataset.tags || "").split(",").map(s => s.trim()).filter(Boolean);
 
-    modalTitle.textContent = title;
-    modalDesc.textContent = desc;
+    if (modalTitle) modalTitle.textContent = title;
+    if (modalDesc) modalDesc.textContent = desc;
 
-    modalTags.innerHTML = "";
-    tags.forEach(t => {
-      const chip = document.createElement("span");
-      chip.className = "chip";
-      chip.textContent = t;
-      modalTags.appendChild(chip);
-    });
+    if (modalTags) {
+      modalTags.innerHTML = "";
+      tags.forEach(t => {
+        const chip = document.createElement("span");
+        chip.className = "chip";
+        chip.textContent = t;
+        modalTags.appendChild(chip);
+      });
+    }
 
     projectModal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
@@ -247,9 +255,9 @@
   const lightboxCap = $("#lightboxCap");
 
   function openLightbox(src, cap) {
-    if (!lightbox) return;
-    lightboxImg.src = src;
-    lightboxCap.textContent = cap || "";
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src || "";
+    if (lightboxCap) lightboxCap.textContent = cap || "";
     lightbox.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
   }
@@ -258,6 +266,7 @@
     if (!lightbox) return;
     lightbox.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
+    if (lightboxImg) lightboxImg.src = "";
   }
 
   $$(".lightboxBtn").forEach(btn => {
@@ -306,10 +315,10 @@
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   // ======================
-  // Skills filter
+  // Skills filter  ✅ FIXED
   // ======================
   const skillBtns = $$(".seg[data-skill-filter]");
-  const skillCards = $$("#skillsGrid .skill");
+  const skillCards = $$("#skillsGrid .skill"); // <-- fixed (was invalid $#[...])
 
   function filterSkills(filter) {
     $$(".seg").forEach(b => b.classList.toggle("active", b.dataset.skillFilter === filter));
@@ -322,6 +331,57 @@
   skillBtns.forEach(btn => {
     btn.addEventListener("click", () => filterSkills(btn.dataset.skillFilter));
   });
+
+  // ======================
+  // Typing Effect (Hero) ✅ NEW
+  // ======================
+  const typingEl = $(".typing-text");
+  if (typingEl) {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const texts = [
+      "Turning data into business decisions",
+      "Building impactful Power BI dashboards",
+      "Bridging business and technology",
+      "Delivering reliable QA outcomes",
+      "Transforming insights into action"
+    ];
+
+    if (prefersReducedMotion) {
+      // Accessibility: no animation if user prefers reduced motion
+      typingEl.textContent = texts[0];
+    } else {
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function typeLoop() {
+        const current = texts[textIndex];
+
+        if (!isDeleting) {
+          typingEl.textContent = current.substring(0, charIndex + 1);
+          charIndex++;
+
+          if (charIndex === current.length) {
+            setTimeout(() => { isDeleting = true; }, 1300);
+          }
+        } else {
+          typingEl.textContent = current.substring(0, charIndex - 1);
+          charIndex--;
+
+          if (charIndex <= 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+          }
+        }
+
+        const speed = isDeleting ? 55 : 85;
+        setTimeout(typeLoop, speed);
+      }
+
+      typeLoop();
+    }
+  }
 
   // ======================
   // Scroll listeners
