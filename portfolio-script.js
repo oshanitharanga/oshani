@@ -714,107 +714,150 @@ window.showExperience = showExperience;
 // CERTIFICATE MODAL - BADGES & EDUCATION
 // ============================================
 (function() {
-    const modalOverlay = document.getElementById('certificate-modal-overlay');
-    const modalContent = document.getElementById('certificate-modal-content');
-    const closeButton = document.querySelector('.certificate-modal-close');
-    const clickableCerts = document.querySelectorAll('.clickable-cert');
-    
-    // Detect if path is PDF or image
-    function isPDF(path) {
-        return path.toLowerCase().endsWith('.pdf');
-    }
-    
-    // Open certificate modal
-    function openCertificateModal(certPath) {
-        if (!modalOverlay || !modalContent) return;
+    // Wait for DOM to be ready
+    function initCertificateModal() {
+        const modalOverlay = document.getElementById('certificate-modal-overlay');
+        const modalContent = document.getElementById('certificate-modal-content');
+        const closeButton = document.querySelector('.certificate-modal-close');
         
-        // Clear previous content
-        modalContent.innerHTML = '';
-        
-        // Create appropriate element based on file type
-        if (isPDF(certPath)) {
-            // PDF: use iframe
-            const iframe = document.createElement('iframe');
-            iframe.src = certPath;
-            iframe.title = 'Certificate PDF';
-            modalContent.appendChild(iframe);
-        } else {
-            // Image: use img
-            const img = document.createElement('img');
-            img.src = certPath;
-            img.alt = 'Certificate';
-            modalContent.appendChild(img);
+        if (!modalOverlay || !modalContent) {
+            console.error('Certificate modal elements not found');
+            return;
         }
         
-        // Show modal
-        modalOverlay.classList.add('active');
-        document.body.classList.add('modal-open');
-        
-        // Focus close button for accessibility
-        if (closeButton) {
-            setTimeout(() => closeButton.focus(), 100);
+        // Detect if path is PDF or image
+        function isPDF(path) {
+            return path.toLowerCase().endsWith('.pdf');
         }
-    }
-    
-    // Close modal
-    function closeCertificateModal() {
-        if (!modalOverlay) return;
         
-        modalOverlay.classList.remove('active');
-        document.body.classList.remove('modal-open');
-        modalContent.innerHTML = '';
-    }
-    
-    // Click handlers for all clickable certificates
-    clickableCerts.forEach(cert => {
-        cert.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const certPath = this.getAttribute('data-cert');
-            if (certPath) {
-                openCertificateModal(certPath);
+        // Fix path: convert backslashes and encode spaces
+        function fixPath(path) {
+            if (!path) return '';
+            // Convert backslashes to forward slashes
+            const normalized = path.replace(/\\/g, '/');
+            // Encode URI to handle spaces
+            return encodeURI(normalized);
+        }
+        
+        // Open certificate modal
+        function openCertificateModal(certPath) {
+            // Clear previous content
+            modalContent.innerHTML = '';
+            
+            // Fix path
+            const fixedPath = fixPath(certPath);
+            
+            // Create appropriate element based on file type
+            if (isPDF(certPath)) {
+                // PDF: use iframe
+                const iframe = document.createElement('iframe');
+                iframe.src = fixedPath;
+                iframe.title = 'Certificate PDF';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.border = 'none';
+                modalContent.appendChild(iframe);
+            } else {
+                // Image: use img
+                const img = document.createElement('img');
+                img.src = fixedPath;
+                img.alt = 'Certificate';
+                img.style.maxWidth = '100%';
+                img.style.maxHeight = '100%';
+                img.style.objectFit = 'contain';
+                modalContent.appendChild(img);
             }
-        });
+            
+            // Show modal
+            modalOverlay.classList.add('active');
+            document.body.classList.add('modal-open');
+            
+            // Focus close button for accessibility
+            if (closeButton) {
+                setTimeout(() => closeButton.focus(), 100);
+            }
+        }
         
-        // Keyboard support
-        cert.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
+        // Close modal
+        function closeCertificateModal() {
+            modalOverlay.classList.remove('active');
+            document.body.classList.remove('modal-open');
+            modalContent.innerHTML = '';
+        }
+        
+        // Use EVENT DELEGATION on document body
+        document.body.addEventListener('click', function(e) {
+            // Check if clicked element is a clickable cert
+            const cert = e.target.closest('.clickable-cert');
+            if (cert) {
                 e.preventDefault();
-                const certPath = this.getAttribute('data-cert');
+                e.stopPropagation();
+                const certPath = cert.getAttribute('data-cert');
                 if (certPath) {
                     openCertificateModal(certPath);
                 }
             }
         });
         
-        // Make keyboard accessible
-        cert.setAttribute('tabindex', '0');
-        cert.setAttribute('role', 'button');
-    });
-    
-    // Close button handler
-    if (closeButton) {
-        closeButton.addEventListener('click', function(e) {
-            e.stopPropagation();
-            closeCertificateModal();
+        // Keyboard support with event delegation
+        document.body.addEventListener('keydown', function(e) {
+            const cert = e.target.closest('.clickable-cert');
+            if (cert && (e.key === 'Enter' || e.key === ' ')) {
+                e.preventDefault();
+                const certPath = cert.getAttribute('data-cert');
+                if (certPath) {
+                    openCertificateModal(certPath);
+                }
+            }
         });
-    }
-    
-    // Overlay click (outside content)
-    if (modalOverlay) {
+        
+        // Make all clickable certs keyboard accessible
+        function makeAccessible() {
+            document.querySelectorAll('.clickable-cert').forEach(cert => {
+                if (!cert.hasAttribute('tabindex')) {
+                    cert.setAttribute('tabindex', '0');
+                    cert.setAttribute('role', 'button');
+                    cert.style.cursor = 'pointer';
+                }
+            });
+        }
+        
+        // Initial setup
+        makeAccessible();
+        
+        // Re-run if new elements are added (useful for dynamic content)
+        const observer = new MutationObserver(makeAccessible);
+        observer.observe(document.body, { childList: true, subtree: true });
+        
+        // Close button handler
+        if (closeButton) {
+            closeButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeCertificateModal();
+            });
+        }
+        
+        // Overlay click (outside content)
         modalOverlay.addEventListener('click', function(e) {
             if (e.target === modalOverlay) {
                 closeCertificateModal();
             }
         });
+        
+        // ESC key handler
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeCertificateModal();
+            }
+        });
     }
     
-    // ESC key handler
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
-            closeCertificateModal();
-        }
-    });
+    // Initialize after DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCertificateModal);
+    } else {
+        initCertificateModal();
+    }
 })();
 
 // ============================================
