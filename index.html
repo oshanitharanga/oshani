@@ -54,7 +54,7 @@
             </div>
             <div class="hero-visual">
                 <div class="hero-image-wrapper">
-                    <img src="assets\profile.png" alt="Oshani Profile Photo" class="hero-image">
+                    <img src="profile.png" alt="Oshani Profile Photo" class="hero-image">
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
                 <div class="about-left">
                     <div class="profile-card">
                         <div class="profile-image-wrapper">
-                            <img src="assets\profile.png" alt="Oshani Profile Photo" class="profile-image">
+                            <img src="profile.png" alt="Oshani Profile Photo" class="profile-image">
                         </div>
                         <div class="skills-tags">
                             <span class="skill-tag">Business Analysis</span>
@@ -1007,7 +1007,7 @@
                         <h3 class="edu-section-title">Education</h3>
                         
                         <div class="edu-items">
-                            <div class="edu-item">
+                            <div class="edu-item edu-item-interactive">
                                 <div class="degree-icon">🎓</div>
                                 <div class="degree-info">
                                     <h4>Master of Information Technology (Professional Computing)</h4>
@@ -1015,8 +1015,13 @@
                                     <div class="edu-details">
                                         <span class="detail-item">GPA: 3.5/4.0</span>
                                         <span class="detail-separator">·</span>
-                                        <span class="detail-item">Golden Key Award</span>
+                                        <span class="detail-item clickable-cert" data-cert="assets/Certificate/Golden Key Award.PNG">Golden Key Award</span>
                                     </div>
+                                </div>
+                                <div class="edu-item-arrow">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
                                 </div>
                             </div>
 
@@ -1068,12 +1073,12 @@
                         
                         <div class="cert-badges-grid">
                             <span class="cert-badge">Microsoft Power Apps Mastery</span>
-                            <span class="cert-badge">Power BI Beginner to Pro</span>
-                            <span class="cert-badge">ACSPO</span>
-                            <span class="cert-badge">CSM</span>
-                            <span class="cert-badge">CSPO</span>
+                            <span class="cert-badge clickable-cert" data-cert="assets/Certificate/Advance Power BI.jfif">Power BI Beginner to Pro</span>
+                            <span class="cert-badge clickable-cert" data-cert="assets/Certificate/ScrumAlliance_A-CSPO_Certificate.pdf">ACSPO</span>
+                            <span class="cert-badge clickable-cert" data-cert="assets/Certificate/ScrumAlliance_CSM_Certificate.pdf">CSM</span>
+                            <span class="cert-badge clickable-cert" data-cert="assets/Certificate/ScrumAlliance_CSPO_Certificate.pdf">CSPO</span>
                             <span class="cert-badge">IIBA Member</span>
-                            <span class="cert-badge">ECBA</span>
+                            <span class="cert-badge clickable-cert" data-cert="assets/Certificate/ECBA Training.jfif">ECBA</span>
                         </div>
 
                         <div class="cert-highlight">
@@ -1540,7 +1545,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <a href="/cdn-cgi/l/email-protection#4a2539222b24230a2f322b273a262f64292527"><span class="__cf_email__" data-cfemail="e28d918a838c8ba2879a838f928e87cc818d8f">[email&#160;protected]</span></a>
+                            <a href="mailto:Oshi.tharanga@gmail.com">Oshi.tharanga@gmail.com</a>
                         </div>
                     </div>
 
@@ -1554,7 +1559,19 @@
                         </div>
                         <div class="contact-details">
                             <h4>LinkedIn</h4>
-                            <a href="https://linkedin.com/in/oshani" target="_blank">linkedin.com/in/oshani</a>
+                            <a href="https://www.linkedin.com/in/oshiwicky/" target="_blank" rel="noopener">linkedin.com/in/oshiwicky</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <a href="tel:0424159226">0424159226</a>
                         </div>
                     </div>
 
@@ -1574,7 +1591,14 @@
 
                 <div class="contact-cta">
                     <p>Looking to collaborate on a project or need a Business Analyst for your team?</p>
-                    <a href="/cdn-cgi/l/email-protection#f9968a91989790b99c81989489959cd79a9694" class="btn btn-primary">Send Me an Email</a>
+                    <div class="contact-form">
+                        <input type="text" id="contact-name" placeholder="Your Name" class="form-input">
+                        <input type="email" id="contact-email" placeholder="Your Email" class="form-input">
+                        <input type="text" id="contact-subject" placeholder="Subject" class="form-input">
+                        <textarea id="contact-message" placeholder="Your Message" rows="4" class="form-textarea"></textarea>
+                        <span class="form-error" id="contact-error" style="display: none; color: #ef4444; font-size: 0.875rem; margin-top: 0.5rem;">Please fill in your message.</span>
+                        <button id="send-email-btn" class="btn btn-primary">Send Message</button>
+                    </div>
                     <p class="contact-note">I typically respond within 24 hours</p>
                 </div>
             </div>
@@ -1589,23 +1613,22 @@
                     <p>&copy; 2026 Oshani. All rights reserved.</p>
                 </div>
                 <div class="footer-social">
-                    <a href="/cdn-cgi/l/email-protection#28475b40494641684d50494558444d064b4745" class="social-icon" aria-label="Email">
+                    <a href="#contact" class="social-icon" aria-label="Contact" data-action="scroll-to-contact">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
                             <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </a>
-                    <a href="https://linkedin.com/in/oshani" target="_blank" class="social-icon" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/oshiwicky/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="currentColor" stroke-width="2"/>
                             <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2"/>
                             <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </a>
-                    <a href="resume.pdf" target="_blank" class="social-icon" aria-label="Resume">
+                    <a href="#top" class="social-icon" aria-label="Back to top" data-action="back-to-top">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M14 2V8H20M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </a>
                 </div>
@@ -1615,26 +1638,22 @@
 
     <!-- Social Sidebar (Fixed) -->
     <div class="social-sidebar">
-        <a href="/cdn-cgi/l/email-protection#6f001c070e01062f0a170e021f030a410c0002" class="social-link" aria-label="Email">
+        <a href="#contact" class="social-link" aria-label="Contact" data-action="scroll-to-contact">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </a>
-        <a href="https://linkedin.com/in/oshani" target="_blank" class="social-link" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/oshiwicky/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </a>
-        <a href="resume.pdf" target="_blank" class="social-link" aria-label="Resume">
+        <a href="#top" class="social-link" aria-label="Back to top" data-action="back-to-top">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 13H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 17H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10 9H9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </a>
     </div>
@@ -1645,6 +1664,12 @@
             <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </button>
+
+    <!-- Certificate Modal -->
+    <div class="certificate-modal-overlay" id="certificate-modal-overlay">
+        <button class="certificate-modal-close" aria-label="Close certificate">&times;</button>
+        <div class="certificate-modal-content" id="certificate-modal-content"></div>
+    </div>
 
     <script>
     // DEBUG: Watch for active class changes
