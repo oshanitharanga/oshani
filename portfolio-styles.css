@@ -1685,6 +1685,70 @@ body.modal-open {
     display: block;
 }
 
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.field-error {
+    display: none;
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.field-error.visible {
+    display: block;
+}
+
+.form-input.error,
+.form-textarea.error {
+    border-color: #ef4444;
+}
+
+.form-status {
+    display: none;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    text-align: center;
+    margin: var(--spacing-sm) 0;
+}
+
+.form-status.visible {
+    display: block;
+}
+
+.form-status.success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+}
+
+.form-status.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+.btn.loading {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.btn.loading::after {
+    content: '...';
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
 /* ============================================
    FOOTER
    ============================================ */
