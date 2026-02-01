@@ -9,8 +9,6 @@
     <title>Oshani - Business Analyst Portfolio</title>
     <link rel="stylesheet" href="portfolio-styles.css">
     <link rel="icon" type="image/png" href="favicon.png">
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -56,7 +54,7 @@
             </div>
             <div class="hero-visual">
                 <div class="hero-image-wrapper">
-                    <img src="profile.png" alt="Oshani Profile Photo" class="hero-image">
+                    <img src="assets\profile.png" alt="Oshani Profile Photo" class="hero-image">
                 </div>
             </div>
         </div>
@@ -76,7 +74,7 @@
                 <div class="about-left">
                     <div class="profile-card">
                         <div class="profile-image-wrapper">
-                            <img src="profile.png" alt="Oshani Profile Photo" class="profile-image">
+                            <img src="assets\profile.png" alt="Oshani Profile Photo" class="profile-image">
                         </div>
                         <div class="skills-tags">
                             <span class="skill-tag">Business Analysis</span>
@@ -1593,34 +1591,36 @@
 
                 <div class="contact-cta">
                     <p>Looking to collaborate on a project or need a Business Analyst for your team?</p>
-                    <div class="contact-form">
+                    <form id="contactForm" class="contact-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
                         <div class="form-field">
-                            <input type="text" id="contactName" placeholder="Your Name *" class="form-input" required>
-                            <div class="field-error" id="nameError"></div>
+                            <input type="text" id="contactName" name="name" placeholder="Your Name *" class="form-input" required>
+                            <div class="field-error" id="errName"></div>
                         </div>
                         
                         <div class="form-field">
-                            <input type="email" id="contactEmail" placeholder="Your Email *" class="form-input" required>
-                            <div class="field-error" id="emailError"></div>
+                            <input type="email" id="contactEmail" name="email" placeholder="Your Email *" class="form-input" required>
+                            <div class="field-error" id="errEmail"></div>
                         </div>
                         
                         <div class="form-field">
-                            <input type="text" id="contactSubject" placeholder="Subject (Optional)" class="form-input">
+                            <input type="text" id="contactSubject" name="user_subject" placeholder="Subject (Optional)" class="form-input">
                         </div>
                         
                         <div class="form-field">
-                            <textarea id="contactMessage" placeholder="Your Message *" rows="4" class="form-textarea" required></textarea>
-                            <div class="field-error" id="messageError"></div>
+                            <textarea id="contactMessage" name="message" placeholder="Your Message *" rows="4" class="form-textarea" required></textarea>
+                            <div class="field-error" id="errMessage"></div>
                         </div>
+                        
+                        <!-- Hidden subject field with prefix -->
+                        <input type="hidden" id="hiddenSubject" name="_subject">
                         
                         <!-- Honeypot for spam prevention -->
-                        <input type="text" id="honeypot" style="display: none;" tabindex="-1" autocomplete="off">
+                        <input type="text" name="company" id="honeypot" style="display: none;" tabindex="-1" autocomplete="off">
                         
                         <div class="form-status" id="formStatus"></div>
                         
-                        <button type="button" id="contactSendBtn" class="btn btn-primary">Send Message</button>
-
-                    </div>
+                        <button type="submit" id="contactSendBtn" class="btn btn-primary">Send Message</button>
+                    </form>
                     <p class="contact-note">I typically respond within 24 hours</p>
                 </div>
             </div>
