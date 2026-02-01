@@ -9,6 +9,8 @@
     <title>Oshani - Business Analyst Portfolio</title>
     <link rel="stylesheet" href="portfolio-styles.css">
     <link rel="icon" type="image/png" href="favicon.png">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -54,7 +56,7 @@
             </div>
             <div class="hero-visual">
                 <div class="hero-image-wrapper">
-                    <img src="assets\profile.png" alt="Oshani Profile Photo" class="hero-image">
+                    <img src="profile.png" alt="Oshani Profile Photo" class="hero-image">
                 </div>
             </div>
         </div>
@@ -74,7 +76,7 @@
                 <div class="about-left">
                     <div class="profile-card">
                         <div class="profile-image-wrapper">
-                            <img src="assets\profile.png" alt="Oshani Profile Photo" class="profile-image">
+                            <img src="profile.png" alt="Oshani Profile Photo" class="profile-image">
                         </div>
                         <div class="skills-tags">
                             <span class="skill-tag">Business Analysis</span>
@@ -1545,7 +1547,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <a href="mailto:Oshi.tharanga@gmail.com">Oshi.tharanga@gmail.com</a>
+                            <a href="/cdn-cgi/l/email-protection#2669554e4f08524e47544748414766414b474f4a0845494b"><span class="__cf_email__" data-cfemail="4b04382322653f232a392a252c2a0b2c262a222765282426">[email&#160;protected]</span></a>
                         </div>
                     </div>
 
@@ -1592,12 +1594,32 @@
                 <div class="contact-cta">
                     <p>Looking to collaborate on a project or need a Business Analyst for your team?</p>
                     <div class="contact-form">
-                        <input type="text" id="contact-name" placeholder="Your Name" class="form-input">
-                        <input type="email" id="contact-email" placeholder="Your Email" class="form-input">
-                        <input type="text" id="contact-subject" placeholder="Subject" class="form-input">
-                        <textarea id="contact-message" placeholder="Your Message" rows="4" class="form-textarea"></textarea>
-                        <span class="form-error" id="contact-error" style="display: none; color: #ef4444; font-size: 0.875rem; margin-top: 0.5rem;">Please fill in your message.</span>
-                        <button id="send-email-btn" class="btn btn-primary">Send Message</button>
+                        <div class="form-field">
+                            <input type="text" id="contactName" placeholder="Your Name *" class="form-input" required>
+                            <div class="field-error" id="nameError"></div>
+                        </div>
+                        
+                        <div class="form-field">
+                            <input type="email" id="contactEmail" placeholder="Your Email *" class="form-input" required>
+                            <div class="field-error" id="emailError"></div>
+                        </div>
+                        
+                        <div class="form-field">
+                            <input type="text" id="contactSubject" placeholder="Subject (Optional)" class="form-input">
+                        </div>
+                        
+                        <div class="form-field">
+                            <textarea id="contactMessage" placeholder="Your Message *" rows="4" class="form-textarea" required></textarea>
+                            <div class="field-error" id="messageError"></div>
+                        </div>
+                        
+                        <!-- Honeypot for spam prevention -->
+                        <input type="text" id="honeypot" style="display: none;" tabindex="-1" autocomplete="off">
+                        
+                        <div class="form-status" id="formStatus"></div>
+                        
+                        <button type="button" id="contactSendBtn" class="btn btn-primary">Send Message</button>
+
                     </div>
                     <p class="contact-note">I typically respond within 24 hours</p>
                 </div>
@@ -1671,7 +1693,7 @@
         <div class="certificate-modal-content" id="certificate-modal-content"></div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // DEBUG: Watch for active class changes
     setInterval(() => {
         const activeItems = document.querySelectorAll(".timeline-item.active");
@@ -1681,13 +1703,4 @@
                 const dot = item.querySelector(".timeline-dot");
                 if (dot) {
                     const styles = window.getComputedStyle(dot);
-                    console.log("Dot background:", styles.background);
-                    console.log("Dot width:", styles.width);
-                }
-            });
-        }
-    }, 2000);
-    </script>
-    <script src="portfolio-script.js"></script>
-</body>
-</html>
+                 
