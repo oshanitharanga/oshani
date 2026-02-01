@@ -818,57 +818,178 @@ window.showExperience = showExperience;
 })();
 
 // ============================================
-// CONTACT FORM - INSTANT EMAIL
+// CONTACT FORM - EMAILJS INTEGRATION
 // ============================================
 (function() {
-    const sendBtn = document.getElementById('send-email-btn');
-    const nameInput = document.getElementById('contact-name');
-    const emailInput = document.getElementById('contact-email');
-    const subjectInput = document.getElementById('contact-subject');
-    const messageInput = document.getElementById('contact-message');
-    const errorSpan = document.getElementById('contact-error');
+    // Initialize EmailJS with your public key
+    // IMPORTANT: Replace with your actual EmailJS public key
+    emailjs.init("YOUR_PUBLIC_KEY_HERE");
     
+    const sendBtn = document.getElementById('contactSendBtn');
+    const nameInput = document.getElementById('contactName');
+    const emailInput = document.getElementById('contactEmail');
+    const subjectInput = document.getElementById('contactSubject');
+    const messageInput = document.getElementById('contactMessage');
+    const honeypot = document.getElementById('honeypot');
+    
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const messageError = document.getElementById('messageError');
+    const formStatus = document.getElementById('formStatus');
+    
+    // Email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    // Clear all errors
+    function clearErrors() {
+        [nameError, emailError, messageError].forEach(el => {
+            if (el) {
+                el.textContent = '';
+                el.classList.remove('visible');
+            }
+        });
+        [nameInput, emailInput, messageInput].forEach(el => {
+            if (el) el.classList.remove('error');
+        });
+        if (formStatus) {
+            formStatus.classList.remove('visible', 'success', 'error');
+            formStatus.textContent = '';
+        }
+    }
+    
+    // Show error
+    function showError(errorEl, inputEl, message) {
+        if (errorEl) {
+            errorEl.textContent = message;
+            errorEl.classList.add('visible');
+        }
+        if (inputEl) {
+            inputEl.classList.add('error');
+        }
+    }
+    
+    // Show status message
+    function showStatus(message, type) {
+        if (formStatus) {
+            formStatus.textContent = message;
+            formStatus.classList.add('visible', type);
+        }
+    }
+    
+    // Validate form
+    function validateForm() {
+        clearErrors();
+        let isValid = true;
+        
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const message = messageInput.value.trim();
+        
+        // Validate name
+        if (!name) {
+            showError(nameError, nameInput, 'Name is required');
+            isValid = false;
+        } else if (name.length < 2) {
+            showError(nameError, nameInput, 'Name must be at least 2 characters');
+            isValid = false;
+        }
+        
+        // Validate email
+        if (!email) {
+            showError(emailError, emailInput, 'Email is required');
+            isValid = false;
+        } else if (!emailRegex.test(email)) {
+            showError(emailError, emailInput, 'Please enter a valid email address');
+            isValid = false;
+        }
+        
+        // Validate message
+        if (!message) {
+            showError(messageError, messageInput, 'Message is required');
+            isValid = false;
+        } else if (message.length < 10) {
+            showError(messageError, messageInput, 'Message must be at least 10 characters');
+            isValid = false;
+        }
+        
+        return isValid;
+    }
+    
+    // Send email
     if (sendBtn) {
         sendBtn.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Get form values
-            const name = nameInput ? nameInput.value.trim() : '';
-            const email = emailInput ? emailInput.value.trim() : '';
-            const subject = subjectInput ? subjectInput.value.trim() : '';
-            const message = messageInput ? messageInput.value.trim() : '';
-            
-            // Validate message
-            if (!message) {
-                if (errorSpan) {
-                    errorSpan.style.display = 'block';
-                    errorSpan.classList.add('visible');
-                }
-                if (messageInput) {
-                    messageInput.focus();
-                    messageInput.style.borderColor = '#ef4444';
-                }
+            // Check honeypot (spam prevention)
+            if (honeypot && honeypot.value) {
+                console.log('Spam detected');
                 return;
             }
             
-            // Hide error
-            if (errorSpan) {
-                errorSpan.style.display = 'none';
-                errorSpan.classList.remove('visible');
-            }
-            if (messageInput) {
-                messageInput.style.borderColor = '';
+            // Validate form
+            if (!validateForm()) {
+                return;
             }
             
-            // Build mailto URL
-            const toEmail = 'Oshi.tharanga@gmail.com';
-            const mailSubject = subject || `[Portfolio] Message from ${name || 'Website Visitor'}`;
-            const mailBody = `Name: ${name || 'Not provided'}\nEmail: ${email || 'Not provided'}\n\nMessage:\n${message}`;
+            // Disable button and show loading state
+            sendBtn.disabled = true;
+            sendBtn.classList.add('loading');
+            const originalText = sendBtn.textContent;
+            sendBtn.textContent = 'Sending';
             
-            const mailtoURL = `mailto:${toEmail}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+            // Get form values
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const subject = subjectInput.value.trim();
+            const message = messageInput.value.trim();
             
-            // Open email client
-            window.location.href = mailtoURL;
+            // Build subject with required prefix
+            const emailSubject = 'Connection From Protfolio ' + (subject || name);
+            
+            // Build email body
+            const emailBody = `Name: ${name}\nEmail: ${email}\nSubject: ${subject || 'N/A'}\n\nMessage:\n${message}`;
+            
+            // Template parameters for EmailJS
+            const templateParams = {
+                to_email: 'oshanitharanga68@gmail.com',
+                from_name: name,
+                from_email: email,
+                subject: emailSubject,
+                message: emailBody,
+                reply_to: email
+            };
+            
+            // Send email via EmailJS
+            // IMPORTANT: Replace with your actual Service ID and Template ID
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Show success message
+                    showStatus('✓ Message sent successfully! I\'ll get back to you soon.', 'success');
+                    
+                    // Clear form
+                    nameInput.value = '';
+                    emailInput.value = '';
+                    subjectInput.value = '';
+                    messageInput.value = '';
+                    
+                    // Re-enable button
+                    sendBtn.disabled = false;
+                    sendBtn.classList.remove('loading');
+                    sendBtn.textContent = originalText;
+                    
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    
+                    // Show error message
+                    showStatus('✗ Failed to send message. Please try again or email me directly.', 'error');
+                    
+                    // Re-enable button
+                    sendBtn.disabled = false;
+                    sendBtn.classList.remove('loading');
+                    sendBtn.textContent = originalText;
+                });
         });
     }
 })();
