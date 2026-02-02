@@ -1650,7 +1650,10 @@ body.modal-open {
 .contact-details a:hover {
     color: var(--color-primary-dark);
 }
-
+.contact-details p {
+    color: var(--color-primary);
+    margin: 0;
+}
 .contact-cta {
     display: none;
 }
