@@ -1,5 +1,5 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Caveat:wght@700&display=swap');
 
 /* ============================================
    CSS VARIABLES - Design System
@@ -263,6 +263,12 @@ button {
     margin-bottom: var(--spacing-sm);
 }
 
+.hero-hi {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+}
+
 .hero-title {
     font-family: var(--font-display);
     font-size: 4.5rem;
@@ -380,6 +386,7 @@ button {
     display: grid;
     grid-template-columns: 400px 1fr;
     gap: var(--spacing-3xl);
+    align-items: center;        /* ← ADD THIS - vertically centers both columns */
     background: var(--color-white);
     border-radius: var(--radius-xl);
     padding: var(--spacing-2xl);
@@ -408,6 +415,7 @@ button {
     gap: var(--spacing-lg);
     position: relative;
     overflow: hidden;
+    margin-top: 4rem;          /* ← ADD THIS - moves card down */
     animation: fadeInUp 0.6s ease-out;
 }
 
@@ -487,6 +495,8 @@ button {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
+    align-items: center;        /* ← ADD THIS */
+    text-align: center;         /* ← ADD THIS */
     animation: fadeInRight 0.6s ease-out;
 }
 
@@ -498,7 +508,12 @@ button {
     margin-bottom: var(--spacing-sm);
     display: flex;
     align-items: center;
+    justify-content: center;    /* ← ADD THIS */
     gap: var(--spacing-sm);
+}
+
+.about-section .section-title {
+    justify-content: center;
 }
 
 .wave-emoji {
@@ -517,6 +532,7 @@ button {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--color-text-secondary);
+    text-align: center;    /* ← ADD THIS */
 }
 
 .intro-text strong {
@@ -1426,7 +1442,7 @@ body.modal-open {
    CERTIFICATE MODAL & CLICKABLE ITEMS
    ============================================ */
 .clickable-cert {
-    cursor: pointer;
+    cursor: pointer !important;
     color: var(--color-primary);
     font-weight: 600;
     transition: all var(--transition-fast);
@@ -1434,16 +1450,20 @@ body.modal-open {
     text-decoration-style: dotted;
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .clickable-cert:hover {
     color: var(--color-primary-dark);
     text-decoration-style: solid;
+    transform: scale(1.05);
 }
 
 .cert-badge.clickable-cert {
     text-decoration: none;
     position: relative;
+    cursor: pointer !important;
 }
 
 .cert-badge.clickable-cert::after {
@@ -1451,6 +1471,7 @@ body.modal-open {
     margin-left: 0.25rem;
     font-size: 0.85em;
     opacity: 0.7;
+    pointer-events: none;
 }
 
 .cert-badge.clickable-cert:hover {
@@ -1571,15 +1592,13 @@ body.modal-open {
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-3xl);
-    margin-top: var(--spacing-2xl);
+    max-width: 1100px;
+    margin: var(--spacing-2xl) auto 0;
 }
 
 .contact-info {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
 }
 
@@ -1633,16 +1652,7 @@ body.modal-open {
 }
 
 .contact-cta {
-    background: var(--color-white);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-2xl);
-    box-shadow: var(--shadow-sm);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: var(--spacing-lg);
+    display: none;
 }
 
 .contact-cta p {
@@ -2077,12 +2087,13 @@ body.modal-open {
     }
     
     .hero-buttons {
-        flex-direction: column;
-        width: 100%;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
     }
     
     .btn {
-        width: 100%;
+        flex: 1;
+        min-width: 140px;
     }
     
     /* Navigation */
@@ -2226,6 +2237,7 @@ button:focus-visible {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-3xl);
+	align-items: stretch;
     position: relative;
     z-index: 1;
 }
@@ -2324,6 +2336,7 @@ button:focus-visible {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-xl);
+	height: 100%;
     animation: fadeInRight 0.8s ease-out;
 }
 
@@ -2398,6 +2411,9 @@ button:focus-visible {
     padding: var(--spacing-xl);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     color: var(--color-text-primary);
+    flex: 1;                       /* ← ADD THESE 3 NEW LINES */
+    display: flex;
+    flex-direction: column;
 }
 
 .outcomes-header {
@@ -2576,6 +2592,7 @@ button:focus-visible {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-3xl);
+	align-items: stretch;
     position: relative;
     z-index: 1;
 }
@@ -2584,6 +2601,9 @@ button:focus-visible {
 .education-column,
 .certifications-column {
     animation: fadeInUp 0.8s ease-out;
+	display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .edu-header,
@@ -2629,6 +2649,9 @@ button:focus-visible {
     box-shadow: var(--shadow-lg);
     color: var(--color-text-primary);
     border: 2px solid var(--color-border);
+	flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .edu-section-title,
@@ -4942,3 +4965,125 @@ button:focus-visible {
     }
 }
 
+/* ============================================
+   TIMELINE DOT VISIBILITY ENHANCEMENT
+   ============================================ */
+/* Brighter, more visible timeline dots */
+.timeline-dot {
+    background: #87C1FF;
+    border: 4px solid #1A1F2E;
+    box-shadow: 0 0 0 4px rgba(135, 193, 255, 0.3);
+}
+
+.timeline-item:hover .timeline-dot {
+    background: #6BADEF;
+    box-shadow: 0 0 0 8px rgba(135, 193, 255, 0.4);
+}
+
+.timeline-item.active .timeline-dot {
+    background: #2D6BFF;
+    box-shadow: 0 0 0 10px rgba(45, 107, 255, 0.5);
+    transform: scale(1.4);
+}
+
+/* Ensure smooth fade transitions */
+.impact-block {
+    transition: opacity 0.4s ease-in-out, transform 0.3s ease;
+}
+
+.impact-block.active {
+    animation: fadeInUp 0.4s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================================
+   EXPERIENCE SECTION FIXES - APPLIED AT END
+   ============================================ */
+
+/* FIX 1: Right-side panel (impact-canvas) overflow fix
+   - Constrains the panel to viewport height
+   - Enables internal scrolling when content exceeds height
+   ============================================ */
+
+.experience-section {
+    min-height: 100vh;
+}
+
+.impact-canvas {
+    max-height: calc(100vh - 240px); /* 240px accounts for section header + padding */
+    overflow-y: auto;
+    padding-right: 1rem; /* Space for scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(135, 193, 255, 0.5) rgba(255, 255, 255, 0.1);
+}
+
+/* Custom scrollbar styling for webkit browsers */
+.impact-canvas::-webkit-scrollbar {
+    width: 8px;
+}
+
+.impact-canvas::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.impact-canvas::-webkit-scrollbar-thumb {
+    background: rgba(135, 193, 255, 0.5);
+    border-radius: 4px;
+}
+
+.impact-canvas::-webkit-scrollbar-thumb:hover {
+    background: rgba(135, 193, 255, 0.7);
+}
+
+
+/* FIX 2: Active timeline bullet color fix
+   - Ensures active state uses primary color variable
+   - Makes the color change more visible
+   ============================================ */
+
+.timeline-item.active .timeline-dot {
+    background: var(--color-primary) !important; /* Using existing variable */
+    border-color: #1A1F2E;
+    box-shadow: 0 0 0 8px rgba(135, 193, 255, 0.3);
+    transform: scale(1.3);
+}
+
+/* Ensure non-active dots have distinct styling */
+.timeline-dot {
+    background: rgba(135, 193, 255, 0.4); /* Dimmer default state */
+    border: 4px solid #1A1F2E;
+}
+
+.timeline-item:hover .timeline-dot {
+    background: rgba(135, 193, 255, 0.6);
+    transform: scale(1.2);
+}
+
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+    .impact-canvas {
+        max-height: none; /* Remove height constraint on mobile */
+        overflow-y: visible;
+    }
+}
+
+@media (max-width: 768px) {
+    .impact-canvas {
+        max-height: none;
+        overflow-y: visible;
+        padding-right: 0;
+    }
+}
