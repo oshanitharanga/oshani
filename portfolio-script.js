@@ -604,6 +604,19 @@ window.showExperience = showExperience;
         card.setAttribute('role', 'button');
     });
     
+    // Read more button handlers
+    const readMoreButtons = document.querySelectorAll('.work-readmore');
+    readMoreButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent card click from firing
+            const card = this.closest('.work-card');
+            const modalId = card.getAttribute('data-modal');
+            if (modalId) {
+                openModal(modalId);
+            }
+        });
+    });
+    
     // Close button handlers
     closeButtons.forEach(btn => {
         btn.addEventListener('click', function(e) {
