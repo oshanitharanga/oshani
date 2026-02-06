@@ -1108,3 +1108,178 @@ window.showExperience = showExperience;
     }
 })();
 
+// ============================================
+// PROJECTS SECTION - VIDEO AND MODAL
+// ============================================
+(function() {
+    // Project data
+    const projectData = {
+        'project-1': {
+            title: 'Project Demo 1',
+            video: 'https://drive.google.com/file/d/13el8RTfme9iLo0yA0LdpTTGVMkB2xELj/preview',
+            isGoogleDrive: true,
+            description: 'This is a comprehensive demonstration of the first project showcasing business analysis and process improvement techniques. The project highlights key methodologies used in requirements gathering, stakeholder management, and solution delivery.'
+        },
+        'project-2': {
+            title: 'Project Demo 2',
+            video: 'https://drive.google.com/file/d/1kBhI5gmP-6RPTQEXNY_kWtEvrv7p_-eC/preview',
+            isGoogleDrive: true,
+            description: 'This is a comprehensive demonstration of the second project highlighting data analytics and automation solutions. The project showcases innovative approaches to data visualization, process automation, and business intelligence implementation.'
+        }
+    };
+
+    // Handle video preview play buttons (only for non-iframe videos)
+    const videoPlayButtons = document.querySelectorAll('.video-play-btn');
+    
+    videoPlayButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const videoPreview = this.previousElementSibling;
+            
+            if (videoPreview && videoPreview.classList.contains('project-video') && videoPreview.tagName === 'VIDEO') {
+                if (videoPreview.paused) {
+                    videoPreview.play();
+                    videoPreview.classList.add('playing');
+                    this.style.opacity = '0';
+                } else {
+                    videoPreview.pause();
+                    videoPreview.classList.remove('playing');
+                    this.style.opacity = '1';
+                }
+            }
+        });
+    });
+
+    // Reset play button when video ends (only for HTML5 videos)
+    const projectVideos = document.querySelectorAll('.project-video');
+    projectVideos.forEach(video => {
+        // Only add event listeners to actual video elements, not iframes
+        if (video.tagName === 'VIDEO') {
+            video.addEventListener('ended', function() {
+                this.classList.remove('playing');
+                const playBtn = this.nextElementSibling;
+                if (playBtn && playBtn.classList.contains('video-play-btn')) {
+                    playBtn.style.opacity = '1';
+                }
+            });
+
+            // Also show play button when video is paused
+            video.addEventListener('pause', function() {
+                if (!this.ended) {
+                    const playBtn = this.nextElementSibling;
+                    if (playBtn && playBtn.classList.contains('video-play-btn')) {
+                        playBtn.style.opacity = '1';
+                    }
+                }
+            });
+
+            video.addEventListener('play', function() {
+                const playBtn = this.nextElementSibling;
+                if (playBtn && playBtn.classList.contains('video-play-btn')) {
+                    playBtn.style.opacity = '0';
+                }
+            });
+        }
+    });
+
+    // Handle "See more" buttons
+    const seeMoreButtons = document.querySelectorAll('.project-see-more');
+    const projectModal = document.getElementById('project-modal-overlay');
+    const modalTitle = document.getElementById('project-modal-title');
+    const modalDescription = document.getElementById('project-modal-description');
+    const modalClose = document.querySelector('.project-modal-close');
+
+    seeMoreButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const projectCard = this.closest('.project-card-new');
+            const projectId = projectCard.getAttribute('data-project');
+            const project = projectData[projectId];
+
+            if (project && projectModal) {
+                // Pause any playing preview videos
+                projectVideos.forEach(video => {
+                    if (video.tagName === 'VIDEO') {
+                        video.pause();
+                        video.currentTime = 0;
+                        video.classList.remove('playing');
+                    }
+                });
+
+                // Populate modal
+                modalTitle.textContent = project.title;
+                modalDescription.textContent = project.description;
+
+                const videoContainer = document.querySelector('.project-modal-video-container');
+                if (project.isGoogleDrive) {
+                    // Create Google Drive iframe
+                    videoContainer.innerHTML = `
+                        <iframe class="project-modal-video project-video-gdrive" 
+                                src="${project.video}" 
+                                frameborder="0" 
+                                allow="autoplay"
+                                allowfullscreen>
+                        </iframe>
+                    `;
+                } else {
+                    // Use regular video element
+                    videoContainer.innerHTML = `
+                        <video class="project-modal-video" controls>
+                            <source src="${project.video}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    `;
+                }
+
+                // Show modal
+                projectModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    // Close modal function
+    function closeProjectModal() {
+        if (projectModal) {
+            projectModal.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Pause and reset modal video
+            const videoContainer = document.querySelector('.project-modal-video-container');
+            if (videoContainer) {
+                const video = videoContainer.querySelector('video');
+                if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+                // For iframes (Google Drive, YouTube), reload to stop playback
+                const iframe = videoContainer.querySelector('iframe');
+                if (iframe) {
+                    const src = iframe.src;
+                    iframe.src = src;
+                }
+            }
+        }
+    }
+
+    // Close button
+    if (modalClose) {
+        modalClose.addEventListener('click', closeProjectModal);
+    }
+
+    // Click outside modal
+    if (projectModal) {
+        projectModal.addEventListener('click', function(e) {
+            if (e.target === projectModal) {
+                closeProjectModal();
+            }
+        });
+    }
+
+    // ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && projectModal && projectModal.classList.contains('active')) {
+            closeProjectModal();
+        }
+    });
+})();
