@@ -48,7 +48,7 @@
                     business analysis, and quality assurance expertise.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#projects" class="btn btn-secondary">View My Work</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                     <a href="assets/Oshani Wicky - CV.pdf" download="Oshani_Wicky_CV.pdf" target="_blank" class="btn btn-secondary">Download CV</a>
                 </div>
@@ -145,7 +145,53 @@
             </div>
         </div>
     </section>
+ <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <h2 class="section-title"> Sample Projects</h2>
+                <p class="section-subtitle">Showcasing my work in action</p>
+            </div>
 
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                
+                <!-- Project Card 1 -->
+                <div class="project-card-new" data-project="project-1">
+                    <div class="project-video-preview">
+                        <iframe class="project-video project-video-gdrive" 
+                                src="https://drive.google.com/file/d/13el8RTfme9iLo0yA0LdpTTGVMkB2xELj/preview" 
+                                frameborder="0" 
+                                allow="autoplay" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">Project Demo 1</h3>
+                        
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card-new" data-project="project-2">
+                    <div class="project-video-preview">
+                        <iframe class="project-video project-video-gdrive" 
+						src="https://drive.google.com/file/d/1kBhI5gmP-6RPTQEXNY_kWtEvrv7p_-eC/preview" 
+						frameborder="0" 
+						allow="autoplay" 
+						allowfullscreen>
+						</iframe>
+                    </div>
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">Project Demo 2</h3>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
     <!-- Projects Section -->
     <section class="projects-section" id="projects">
         <div class="container">
@@ -661,6 +707,8 @@
             </div>
         </div>
     </section>
+
+   
 
     <!-- Skills Section -->
     <section class="skills-section" id="skills">
@@ -1615,7 +1663,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <a href="/cdn-cgi/l/email-protection#2669554e4f08524e47544748414766414b474f4a0845494b"><span class="__cf_email__" data-cfemail="4b04382322653f232a392a252c2a0b2c262a222765282426">Oshi.tharanga@gmail.com</span></a>
+                            <a href="/cdn-cgi/l/email-protection#2669554e4f08524e47544748414766414b474f4a0845494b"><span class="__cf_email__" data-cfemail="4b04382322653f232a392a252c2a0b2c262a222765282426"><span class="__cf_email__" data-cfemail="d29da1babbfca6bab3a0b3bcb5b392b5bfb3bbbefcb1bdbf">[email&#160;protected]</span></span></a>
                         </div>
                     </div>
 
@@ -1702,7 +1750,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <p>&copy; 2026 Oshani. All rights reserved.</p>
+                    <p>&copy; 2023 Oshani. All rights reserved.</p>
                 </div>
                 <div class="footer-social">
                     <a href="#contact" class="social-icon" aria-label="Contact" data-action="scroll-to-contact">
@@ -1760,7 +1808,24 @@
     <!-- Certificate Modal -->
     <div class="certificate-modal-overlay" id="certificate-modal-overlay">
         <button class="certificate-modal-close" aria-label="Close certificate">&times;</button>
-        <div class="certificate-modal-content" id="certificate-modal-content"></div>
+        <div class="certificate-modal-content" id="certificate-modal-content">
+            <img id="certificate-modal-image" src="" alt="Certificate">
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="project-modal-overlay" id="project-modal-overlay">
+        <div class="project-modal-content">
+            <button class="project-modal-close" aria-label="Close project modal">&times;</button>
+            <h3 class="project-modal-title" id="project-modal-title"></h3>
+            <div class="project-modal-video-container">
+                <video class="project-modal-video" id="project-modal-video" controls>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="project-modal-description" id="project-modal-description"></p>
+        </div>
     </div>
 
     <script src="portfolio-script.js"></script>
