@@ -47,10 +47,11 @@
                     Transforming complex challenges into streamlined, actionable solutions through analytics, 
                     business analysis, and quality assurance expertise.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-secondary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                    <a href="assets/Oshani Wicky - CV.pdf" download="Oshani_Wicky_CV.pdf" target="_blank" class="btn btn-secondary">Download CV</a>
+                <div class="hero-buttons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 500px;">
+                    <a href="sample-projects.html" class="btn btn-secondary" style="width: 100%; text-align: center;">Sample Projects</a>
+                    <a href="#projects" class="btn btn-secondary" style="width: 100%; text-align: center;">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary" style="width: 100%; text-align: center;">Get In Touch</a>
+                    <a href="assets/Oshani Wicky - CV.pdf" download="Oshani_Wicky_CV.pdf" target="_blank" class="btn btn-secondary" style="width: 100%; text-align: center;">Download CV</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -145,56 +146,7 @@
             </div>
         </div>
     </section>
- <!-- Projects Section -->
-    <section class="sample-projects-section" id="sample-projects">
-        <div class="container">
-            <!-- Section Header -->
-            <div class="section-header">
-                <h2 class="section-title">Sample Projects</h2>
-                <p class="section-subtitle">Showcasing my work in action</p>
-            </div>
 
-            <!-- Projects Grid -->
-            <div class="sample-projects-grid">
-                
-                <!-- Project Card 1 -->
-                <div class="project-card-new" data-project="project-1">
-                    <div class="project-video-preview">
-                        <iframe class="project-video project-video-gdrive" 
-                                src="https://drive.google.com/file/d/13el8RTfme9iLo0yA0LdpTTGVMkB2xELj/preview" 
-                                frameborder="0" 
-                                allow="autoplay" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="project-card-content">
-                        <h3 class="project-card-title">Project Demo 1</h3>
-                        <p class="project-card-description">This is a demonstration of the first project showcasing business analysis and process improvement techniques.</p>
-                        <button type="button" class="project-see-more" aria-label="See more about Project Demo 1">See more →</button>
-                    </div>
-                </div>
-
-                <!-- Project Card 2 -->
-                <div class="project-card-new" data-project="project-2">
-                    <div class="project-video-preview">
-                        <iframe class="project-video project-video-gdrive" 
-						src="https://drive.google.com/file/d/1kBhI5gmP-6RPTQEXNY_kWtEvrv7p_-eC/preview" 
-						frameborder="0" 
-						allow="autoplay" 
-						allowfullscreen>
-						</iframe>
-                    </div>
-                    <div class="project-card-content">
-                        <h3 class="project-card-title">Project Demo 2</h3>
-                        <p class="project-card-description">This is a demonstration of the second project highlighting data analytics and automation solutions.</p>
-                        <button type="button" class="project-see-more" aria-label="See more about Project Demo 2">See more →</button>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
     <!-- Projects Section -->
     <section class="projects-section" id="projects">
         <div class="container">
@@ -216,11 +168,13 @@
             <div class="projects-grid">
                 
                
-<!-- Project 1: Hotel Operations BI Dashboard -->
-<div class="project-card" data-category="analytics">
-    <div class="project-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="12" width="48" height="44" rx="2" stroke="currentColor" stroke-width="3"/>
+<!-- Hotel Operations BI Dashboard -->
+<div class="pocket-card" data-category="analytics">
+    <div class="card-front" onclick="togglePocket(this)">
+        <div class="card-header-row">
+            <div class="card-icon-pocket">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="8" y="12" width="48" height="44" rx="2" stroke="currentColor" stroke-width="3"/>
             <rect x="16" y="20" width="8" height="8" fill="currentColor"/>
             <rect x="28" y="20" width="8" height="8" fill="currentColor"/>
             <rect x="40" y="20" width="8" height="8" fill="currentColor"/>
@@ -228,482 +182,1008 @@
             <rect x="28" y="32" width="8" height="8" fill="currentColor"/>
             <rect x="40" y="32" width="8" height="8" fill="currentColor"/>
             <rect x="16" y="44" width="32" height="4" fill="currentColor"/>
-        </svg>
+                </svg>
+            </div>
+            <div class="card-title-section">
+                <h3 class="pocket-card-title">Hotel Operations BI Dashboard</h3>
+                <div class="card-meta-pocket">
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">🏨</div>
+                        <span>Hospitality</span>
+                    </div>
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">📊</div>
+                        <span>BI Analyst</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="project-content">
-        <h3 class="project-title">Hotel Operations BI Dashboard</h3>
-        <div class="project-meta">
-            <span class="meta-item">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 10H3M16 2V6M8 2V6M7.8 22H16.2C17.8802 22 18.7202 22 19.362 21.673C19.9265 21.3854 20.3854 20.9265 20.673 20.362C21 19.7202 21 18.8802 21 17.2V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Hospitality
-            </span>
-            <span class="meta-item">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                BI Analyst
-            </span>
-        </div>
-        <p class="project-description"><strong>Problem:</strong> Hotel operations relied heavily on manual reporting with limited real-time visibility into occupancy, revenue performance, and workforce utilisation, restricting timely decision-making and operational responsiveness.</p>
-        <p class="project-description"><strong>What I Did:</strong></p>
-        <p class="project-description">• Defined KPIs (Occupancy, ADR, RevPAR, Attendance) </p>
-        <p class="project-description">• Modelled and transformed data using Power Query & SQL </p>
-        <p class="project-description">• Designed executive-level Power BI dashboards for management</p>
-        
-        <div class="project-impact">
-            <div class="impact-item">
-                <span class="impact-icon">⬆️</span>
-                <span class="impact-text">Improved operational efficiency by 70%</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">⏱️</span>
-                <span class="impact-text">Reduced reporting time by 60%</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">🚀</span>
-                <span class="impact-text">Increased management decision speed by 25%</span>
-            </div>
-        </div>
 
-        <div class="project-skills">
-            <span class="skill-badge">KPI Design</span>
-            <span class="skill-badge">Data Modelling</span>
-            <span class="skill-badge">Power BI</span>
-            <span class="skill-badge">Business Analysis</span>
-            <span class="skill-badge">Stakeholder Reporting</span>
+    <div class="pocket-content">
+        <div class="pocket-inner">
+            <!-- Problem Section -->
+            <div class="pocket-section problem-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket problem-icon-pocket">⚠️</div>
+                    <h4 class="section-title-pocket">Problem</h4>
+                </div>
+                <p class="section-content-pocket">
+                    Hotel operations relied heavily on manual reporting with limited real-time visibility into occupancy, revenue performance, and workforce utilisation, restricting timely decision-making and operational responsiveness.
+                </p>
+            </div>
+
+            <!-- What I Did Section -->
+            <div class="pocket-section solution-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket solution-icon-pocket">⚙️</div>
+                    <h4 class="section-title-pocket">What I Did</h4>
+                </div>
+                <ul class="action-list-pocket">
+                    <li>Defined KPIs (Occupancy, ADR, RevPAR, Attendance) </li>
+                    <li>Modelled and transformed data using Power Query & SQL </li>
+                    <li>Designed executive-level Power BI dashboards for management</li>
+                </ul>
+            </div>
+
+            <!-- Results Section -->
+            <div class="pocket-section results-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket results-icon-pocket">📊</div>
+                    <h4 class="section-title-pocket">Results</h4>
+                </div>
+                <div class="results-grid-pocket">
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">⬆️</div>
+                        <div class="result-text-pocket">
+                            <div class="result-label-pocket">Improved operational efficiency</div>
+                            <div class="result-value-pocket"><span class="result-highlight-pocket">70%</span></div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">⏱️</div>
+                        <div class="result-text-pocket">
+                            <div class="result-label-pocket">Reduced reporting time</div>
+                            <div class="result-value-pocket"><span class="result-highlight-pocket">60%</span></div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">🚀</div>
+                        <div class="result-text-pocket">
+                            <div class="result-label-pocket">Increased management decision speed</div>
+                            <div class="result-value-pocket"><span class="result-highlight-pocket">25%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="tags-section-pocket">
+                <div class="tags-grid-pocket">
+                    <span class="tag-pocket">KPI Design</span>
+                    <span class="tag-pocket">Data Modelling</span>
+                    <span class="tag-pocket">Power BI</span>
+                    <span class="tag-pocket">Business Analysis</span>
+                    <span class="tag-pocket">Stakeholder Reporting</span>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="toggle-btn-pocket" onclick="togglePocket(this)">
+        <span class="toggle-text-pocket">View Details</span>
+        <span class="toggle-arrow-pocket">▼</span>
     </div>
 </div>
 
-<!-- Project 2: Healthcare Operations Dashboard -->
-<div class="project-card" data-category="analytics">
-    <div class="project-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M32 8L40 24L56 26L44 38L47 54L32 46L17 54L20 38L8 26L24 24L32 8Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+<!-- Healthcare Operations Dashboard -->
+<div class="pocket-card" data-category="analytics">
+    <div class="card-front" onclick="togglePocket(this)">
+        <div class="card-header-row">
+            <div class="card-icon-pocket">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 8L40 24L56 26L44 38L47 54L32 46L17 54L20 38L8 26L24 24L32 8Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
             <path d="M32 24V40M24 32H40" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+                </svg>
+            </div>
+            <div class="card-title-section">
+                <h3 class="pocket-card-title">Healthcare Operations Dashboard</h3>
+                <div class="card-meta-pocket">
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">🏥</div>
+                        <span>Healthcare</span>
+                    </div>
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">📊</div>
+                        <span>BI Analyst</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="project-content">
-        <h3 class="project-title">Healthcare Operations Dashboard</h3>
-        <div class="project-meta">
-            <span class="meta-item">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 10H3M16 2V6M8 2V6M7.8 22H16.2C17.8802 22 18.7202 22 19.362 21.673C19.9265 21.3854 20.3854 20.9265 20.673 20.362C21 19.7202 21 18.8802 21 17.2V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Healthcare
-            </span>
-            <span class="meta-item">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                BI Analyst
-            </span>
-        </div>
-        <p class="project-description"><strong>Problem:</strong> Hospital management lacked real-time visibility into patient flow and resource utilisation, limiting the ability to respond quickly and optimise operational performance.</p>
-        <p class="project-description"><strong>What I Did:</strong></p>
-        <p class="project-description">• Built real-time dashboards tracking patients, doctors, and billing</p>
-        <p class="project-description">• Validated data accuracy and reporting logic </p>
-        <p class="project-description">• Designed visuals for non-technical stakeholders</p>
-        
-        <div class="project-impact">
-            <div class="impact-item">
-                <span class="impact-icon">⚡</span>
-                <span class="impact-text">Faster response to patient care bottlenecks</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">📊</span>
-                <span class="impact-text">Improved resource optimisation and visibility</span>
-            </div>
-        </div>
 
-        <div class="project-skills">
-            <span class="skill-badge">Power BI</span>
-            <span class="skill-badge">Data Validation</span>
-            <span class="skill-badge">Real-Time Reporting</span>
-            <span class="skill-badge">Analytics</span>
+    <div class="pocket-content">
+        <div class="pocket-inner">
+            <!-- Problem Section -->
+            <div class="pocket-section problem-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket problem-icon-pocket">⚠️</div>
+                    <h4 class="section-title-pocket">Problem</h4>
+                </div>
+                <p class="section-content-pocket">
+                    Hospital management lacked real-time visibility into patient flow and resource utilisation, limiting the ability to respond quickly and optimise operational performance.
+                </p>
+            </div>
+
+            <!-- What I Did Section -->
+            <div class="pocket-section solution-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket solution-icon-pocket">⚙️</div>
+                    <h4 class="section-title-pocket">What I Did</h4>
+                </div>
+                <ul class="action-list-pocket">
+                    <li>Built real-time dashboards tracking patients, doctors, and billing</li>
+                    <li>Validated data accuracy and reporting logic </li>
+                    <li>Designed visuals for non-technical stakeholders</li>
+                </ul>
+            </div>
+
+            <!-- Results Section -->
+            <div class="pocket-section results-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket results-icon-pocket">📊</div>
+                    <h4 class="section-title-pocket">Results</h4>
+                </div>
+                <div class="results-grid-pocket">
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">⚡</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Faster response to patient care bottlenecks</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">📊</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Improved resource optimisation and visibility</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="tags-section-pocket">
+                <div class="tags-grid-pocket">
+                    <span class="tag-pocket">Power BI</span>
+                    <span class="tag-pocket">Data Validation</span>
+                    <span class="tag-pocket">Real-Time Reporting</span>
+                    <span class="tag-pocket">Analytics</span>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="toggle-btn-pocket" onclick="togglePocket(this)">
+        <span class="toggle-text-pocket">View Details</span>
+        <span class="toggle-arrow-pocket">▼</span>
     </div>
 </div>
 
-<!-- Project 3: Education Analytics Dashboard -->
-<div class="project-card" data-category="analytics">
-    <div class="project-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 28L32 16L56 28L32 40L8 28Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+<!-- Education Analytics – Student Performance Dashboard -->
+<div class="pocket-card" data-category="analytics">
+    <div class="card-front" onclick="togglePocket(this)">
+        <div class="card-header-row">
+            <div class="card-icon-pocket">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 28L32 16L56 28L32 40L8 28Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
             <path d="M16 32V44L32 52L48 44V32" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+                </svg>
+            </div>
+            <div class="card-title-section">
+                <h3 class="pocket-card-title">Education Analytics – Student Performance Dashboard</h3>
+                <div class="card-meta-pocket">
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">🎓</div>
+                        <span>Education</span>
+                    </div>
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">📊</div>
+                        <span>BI Analyst</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="project-content">
-        <h3 class="project-title">Education Analytics – Student Performance Dashboard</h3>
-        <div class="project-meta">
-            <span class="meta-item">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 10H3M16 2V6M8 2V6M7.8 22H16.2C17.8802 22 18.7202 22 19.362 21.673C19.9265 21.3854 20.3854 20.9265 20.673 20.362C21 19.7202 21 18.8802 21 17.2V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Education
-            </span>
-            <span class="meta-item">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                BI Analyst
-            </span>
-        </div>
-        <p class="project-description"><strong>Context:</strong> Educational institutions required better visibility into student enrolment, attendance, academic performance, and exam trends. Existing reports were fragmented and time-consuming, making it difficult for administrators to identify performance patterns or intervene early.</p>
-        <p class="project-description"><strong>What I Did:</strong></p>
-        <p class="project-description">• Analysed academic and administrative data sources to define meaningful performance KPIs </p>
-        <p class="project-description">• Designed dashboards covering enrolment trends, attendance rates, grades distribution, and exam outcomes</p>
-        <p class="project-description">• Translated complex academic data into clear, actionable visuals for non-technical users</p>
-        
-        <div class="project-impact">
-            <div class="impact-item">
-                <span class="impact-icon">🎯</span>
-                <span class="impact-text">Enabled early identification of at-risk students</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">📈</span>
-                <span class="impact-text">Improved academic performance monitoring</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">✅</span>
-                <span class="impact-text">Supported data-driven decision-making</span>
-            </div>
-        </div>
 
-        <div class="project-skills">
-            <span class="skill-badge">Power BI</span>
-            <span class="skill-badge">KPI Definition</span>
-            <span class="skill-badge">Dashboard Design</span>
-            <span class="skill-badge">Education Analytics</span>
+    <div class="pocket-content">
+        <div class="pocket-inner">
+            <!-- Problem Section -->
+            <div class="pocket-section problem-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket problem-icon-pocket">⚠️</div>
+                    <h4 class="section-title-pocket">Problem</h4>
+                </div>
+                <p class="section-content-pocket">
+                    Educational institutions required better visibility into student enrolment, attendance, academic performance, and exam trends. Existing reports were fragmented and time-consuming, making it difficult for administrators to identify performance patterns or intervene early.
+                </p>
+            </div>
+
+            <!-- What I Did Section -->
+            <div class="pocket-section solution-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket solution-icon-pocket">⚙️</div>
+                    <h4 class="section-title-pocket">What I Did</h4>
+                </div>
+                <ul class="action-list-pocket">
+                    <li>Analysed academic and administrative data sources to define meaningful performance KPIs </li>
+                    <li>Designed dashboards covering enrolment trends, attendance rates, grades distribution, and exam outcomes</li>
+                    <li>Translated complex academic data into clear, actionable visuals for non-technical users</li>
+                </ul>
+            </div>
+
+            <!-- Results Section -->
+            <div class="pocket-section results-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket results-icon-pocket">📊</div>
+                    <h4 class="section-title-pocket">Results</h4>
+                </div>
+                <div class="results-grid-pocket">
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">🎯</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Enabled early identification of at-risk students</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">📈</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Improved academic performance monitoring</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">✅</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Supported data-driven decision-making</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="tags-section-pocket">
+                <div class="tags-grid-pocket">
+                    <span class="tag-pocket">Power BI</span>
+                    <span class="tag-pocket">KPI Definition</span>
+                    <span class="tag-pocket">Dashboard Design</span>
+                    <span class="tag-pocket">Education Analytics</span>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="toggle-btn-pocket" onclick="togglePocket(this)">
+        <span class="toggle-text-pocket">View Details</span>
+        <span class="toggle-arrow-pocket">▼</span>
     </div>
 </div>
 
-<!-- Project 4: Sales & Revenue Analytics Dashboard -->
-<div class="project-card" data-category="analytics">
-    <div class="project-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 48L20 36L32 42L56 18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- Sales & Revenue Analytics – Performance & Growth Dashboard -->
+<div class="pocket-card" data-category="analytics">
+    <div class="card-front" onclick="togglePocket(this)">
+        <div class="card-header-row">
+            <div class="card-icon-pocket">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 48L20 36L32 42L56 18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
             <polyline points="42,18 56,18 56,32" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
             <circle cx="20" cy="36" r="3" fill="currentColor"/>
             <circle cx="32" cy="42" r="3" fill="currentColor"/>
             <circle cx="56" cy="18" r="3" fill="currentColor"/>
-        </svg>
+                </svg>
+            </div>
+            <div class="card-title-section">
+                <h3 class="pocket-card-title">Sales & Revenue Analytics – Performance & Growth Dashboard</h3>
+                <div class="card-meta-pocket">
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">💰</div>
+                        <span>Sales & Revenue</span>
+                    </div>
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">📊</div>
+                        <span>BI Analyst</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="project-content">
-        <h3 class="project-title">Sales & Revenue Analytics – Performance & Growth Dashboard</h3>
-        <div class="project-meta">
-            <span class="meta-item">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 10H3M16 2V6M8 2V6M7.8 22H16.2C17.8802 22 18.7202 22 19.362 21.673C19.9265 21.3854 20.3854 20.9265 20.673 20.362C21 19.7202 21 18.8802 21 17.2V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Sales & Revenue
-            </span>
-            <span class="meta-item">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                BI Analyst
-            </span>
-        </div>
-        <p class="project-description"><strong>Context:</strong> Sales teams required a consolidated view of performance across volume, revenue targets, growth trends, and regional results. Data existed across multiple sources but lacked a single, reliable performance view for leadership.</p>
-        <p class="project-description"><strong>What I Did:</strong></p>
-        <p class="project-description">• Defined sales and revenue KPIs aligned with business targets </p>
-        <p class="project-description">• Built interactive dashboards tracking volume, revenue growth, and regional performance </p>
-        <p class="project-description">• Enabled drill-down analysis to identify underperforming regions and growth opportunities</p>
-        
-        <div class="project-impact">
-            <div class="impact-item">
-                <span class="impact-icon">👁️</span>
-                <span class="impact-text">Improved visibility into sales performance</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">🎯</span>
-                <span class="impact-text">Supported proactive decision-making</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">📍</span>
-                <span class="impact-text">Identified regional trends and growth opportunities</span>
-            </div>
-        </div>
 
-        <div class="project-skills">
-            <span class="skill-badge">Sales Analytics</span>
-            <span class="skill-badge">KPI Definition</span>
-            <span class="skill-badge">Power BI</span>
-            <span class="skill-badge">Performance Tracking</span>
+    <div class="pocket-content">
+        <div class="pocket-inner">
+            <!-- Problem Section -->
+            <div class="pocket-section problem-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket problem-icon-pocket">⚠️</div>
+                    <h4 class="section-title-pocket">Problem</h4>
+                </div>
+                <p class="section-content-pocket">
+                    Sales teams required a consolidated view of performance across volume, revenue targets, growth trends, and regional results. Data existed across multiple sources but lacked a single, reliable performance view for leadership.
+                </p>
+            </div>
+
+            <!-- What I Did Section -->
+            <div class="pocket-section solution-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket solution-icon-pocket">⚙️</div>
+                    <h4 class="section-title-pocket">What I Did</h4>
+                </div>
+                <ul class="action-list-pocket">
+                    <li>Defined sales and revenue KPIs aligned with business targets </li>
+                    <li>Built interactive dashboards tracking volume, revenue growth, and regional performance </li>
+                    <li>Enabled drill-down analysis to identify underperforming regions and growth opportunities</li>
+                </ul>
+            </div>
+
+            <!-- Results Section -->
+            <div class="pocket-section results-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket results-icon-pocket">📊</div>
+                    <h4 class="section-title-pocket">Results</h4>
+                </div>
+                <div class="results-grid-pocket">
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">👁️</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Improved visibility into sales performance</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">🎯</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Supported proactive decision-making</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">📍</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Identified regional trends and growth opportunities</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="tags-section-pocket">
+                <div class="tags-grid-pocket">
+                    <span class="tag-pocket">Sales Analytics</span>
+                    <span class="tag-pocket">KPI Definition</span>
+                    <span class="tag-pocket">Power BI</span>
+                    <span class="tag-pocket">Performance Tracking</span>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="toggle-btn-pocket" onclick="togglePocket(this)">
+        <span class="toggle-text-pocket">View Details</span>
+        <span class="toggle-arrow-pocket">▼</span>
     </div>
 </div>
 
-<!-- Project 5: Airtable Process Automation System -->
-<div class="project-card" data-category="business-analysis">
-    <div class="project-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="12" width="48" height="40" rx="4" stroke="currentColor" stroke-width="3"/>
+<!-- Airtable Process Automation System -->
+<div class="pocket-card" data-category="business-analysis">
+    <div class="card-front" onclick="togglePocket(this)">
+        <div class="card-header-row">
+            <div class="card-icon-pocket">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="8" y="12" width="48" height="40" rx="4" stroke="currentColor" stroke-width="3"/>
             <path d="M8 24H56M20 12V52M44 12V52" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
             <circle cx="32" cy="36" r="6" fill="currentColor"/>
-        </svg>
+                </svg>
+            </div>
+            <div class="card-title-section">
+                <h3 class="pocket-card-title">Airtable Process Automation System</h3>
+                <div class="card-meta-pocket">
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">🎓</div>
+                        <span>Student Partnerships (Australia)</span>
+                    </div>
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">📋</div>
+                        <span>Business Analyst & Database Developer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="project-content">
-        <h3 class="project-title">Airtable Process Automation System</h3>
-        <div class="project-meta">
-            <span class="meta-item">Student Partnerships (Australia)</span>
-            <span class="meta-item">Business Analyst & Database Developer</span>
-        </div>
-        <p class="project-description"><strong>Business Problem:</strong> Student Partnerships operated with largely undocumented and manual business processes across project intake, student–supervisor allocation, ratings, and reporting. This resulted in duplicated effort, inconsistent data handling, limited operational visibility, and increased administrative workload, restricting the organisation's ability to scale efficiently.</p>
-        <p class="project-description"><strong>What I Did:</strong> Elicited and documented business, functional, and reporting requirements through stakeholder engagement • Analysed existing workflows and designed clear As-Is and To-Be process models • Designed and implemented a relational Airtable database to centralise operational data • Automated key workflows including student allocation, performance ratings, reporting, and social media scheduling</p>
-        
-        <div class="project-impact">
-            <div class="impact-item">
-                <span class="impact-icon">🔁</span>
-                <span class="impact-text">Automated ~75% of previously manual processes</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">📉</span>
-                <span class="impact-text">Significantly reduced administrative workload</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">📊</span>
-                <span class="impact-text">Enabled real-time operational visibility</span>
-            </div>
-        </div>
 
-        <div class="project-skills">
-            <span class="skill-badge">Requirements Engineering</span>
-            <span class="skill-badge">Process Modelling</span>
-            <span class="skill-badge">Workflow Automation</span>
-            <span class="skill-badge">Data Structuring</span>
-            <span class="skill-badge">Stakeholder Management</span>
+    <div class="pocket-content">
+        <div class="pocket-inner">
+            <!-- Problem Section -->
+            <div class="pocket-section problem-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket problem-icon-pocket">⚠️</div>
+                    <h4 class="section-title-pocket">Problem</h4>
+                </div>
+                <p class="section-content-pocket">
+                    Student Partnerships operated with largely undocumented and manual business processes across project intake, student–supervisor allocation, ratings, and reporting. This resulted in duplicated effort, inconsistent data handling, limited operational visibility, and increased administrative workload, restricting the organisation's ability to scale efficiently.
+                </p>
+            </div>
+
+            <!-- What I Did Section -->
+            <div class="pocket-section solution-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket solution-icon-pocket">⚙️</div>
+                    <h4 class="section-title-pocket">What I Did</h4>
+                </div>
+                <ul class="action-list-pocket">
+                    <li>Elicited and documented business, functional, and reporting requirements through stakeholder engagement</li>
+                    <li>Analysed existing workflows and designed clear As-Is and To-Be process models </li>
+                    <li>Designed and implemented a relational Airtable database to centralise operational data </li>
+                    <li>Automated key workflows including student allocation, performance ratings, reporting, and social media scheduling</li>
+                </ul>
+            </div>
+
+            <!-- Results Section -->
+            <div class="pocket-section results-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket results-icon-pocket">📊</div>
+                    <h4 class="section-title-pocket">Results</h4>
+                </div>
+                <div class="results-grid-pocket">
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">🔁</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Automated ~75% of previously manual processes</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">📉</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Significantly reduced administrative workload</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">📊</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Enabled real-time operational visibility</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="tags-section-pocket">
+                <div class="tags-grid-pocket">
+                    <span class="tag-pocket">Requirements Engineering</span>
+                    <span class="tag-pocket">Process Modelling</span>
+                    <span class="tag-pocket">Workflow Automation</span>
+                    <span class="tag-pocket">Data Structuring</span>
+                    <span class="tag-pocket">Stakeholder Management</span>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="toggle-btn-pocket" onclick="togglePocket(this)">
+        <span class="toggle-text-pocket">View Details</span>
+        <span class="toggle-arrow-pocket">▼</span>
     </div>
 </div>
 
-<!-- Project 6: Capstone Project Proposal Management System -->
-<div class="project-card" data-category="business-analysis">
-    <div class="project-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="12" y="8" width="40" height="48" rx="2" stroke="currentColor" stroke-width="3"/>
+<!-- Capstone Project Proposal Management System -->
+<div class="pocket-card" data-category="business-analysis">
+    <div class="card-front" onclick="togglePocket(this)">
+        <div class="card-header-row">
+            <div class="card-icon-pocket">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="12" y="8" width="40" height="48" rx="2" stroke="currentColor" stroke-width="3"/>
             <path d="M20 20H44M20 28H44M20 36H36" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
             <path d="M40 40L48 48M44 44L52 52" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+                </svg>
+            </div>
+            <div class="card-title-section">
+                <h3 class="pocket-card-title">Capstone Project Proposal Management System</h3>
+                <div class="card-meta-pocket">
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">💼</div>
+                        <span>Swinburne University of Technology</span>
+                    </div>
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">📋</div>
+                        <span>Business Analyst</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="project-content">
-        <h3 class="project-title">Capstone Project Proposal Management System</h3>
-        <div class="project-meta">
-            <span class="meta-item">Swinburne University of Technology</span>
-            <span class="meta-item">Business Analyst</span>
-        </div>
-        <p class="project-description"><strong>Business Problem:</strong> The capstone project proposal process was managed manually, resulting in frequent data errors, limited tracking of proposal status, and delays in project allocation decisions for students and academic supervisors.</p>
-        <p class="project-description"><strong>What I Did:</strong> Gathered and documented functional and non-functional requirements through stakeholder consultation • Analysed existing workflows and translated requirements into structured solution designs • Created UML diagrams, user stories, and acceptance criteria to support system development • Supported User Acceptance Testing (UAT) and validated system functionality against business requirements</p>
-        
-        <div class="project-impact">
-            <div class="impact-item">
-                <span class="impact-icon">⚙️</span>
-                <span class="impact-text">Automated end-to-end proposal management workflow</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">✓</span>
-                <span class="impact-text">Improved data accuracy and consistency</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">⏩</span>
-                <span class="impact-text">Enabled faster project allocation decisions</span>
-            </div>
-        </div>
 
-        <div class="project-skills">
-            <span class="skill-badge">Business Analysis Documentation</span>
-            <span class="skill-badge">UML Modelling</span>
-            <span class="skill-badge">Requirements Engineering</span>
-            <span class="skill-badge">UAT Support</span>
-            <span class="skill-badge">Agile Delivery</span>
+    <div class="pocket-content">
+        <div class="pocket-inner">
+            <!-- Problem Section -->
+            <div class="pocket-section problem-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket problem-icon-pocket">⚠️</div>
+                    <h4 class="section-title-pocket">Problem</h4>
+                </div>
+                <p class="section-content-pocket">
+                    The capstone project proposal process was managed manually, resulting in frequent data errors, limited tracking of proposal status, and delays in project allocation decisions for students and academic supervisors.
+                </p>
+            </div>
+
+            <!-- What I Did Section -->
+            <div class="pocket-section solution-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket solution-icon-pocket">⚙️</div>
+                    <h4 class="section-title-pocket">What I Did</h4>
+                </div>
+                <ul class="action-list-pocket">
+                    <li>Gathered and documented functional and non-functional requirements through stakeholder consultation </li>
+                    <li>Analysed existing workflows and translated requirements into structured solution designs </li>
+                    <li>Created UML diagrams, user stories, and acceptance criteria to support system development </li>
+                    <li>Supported User Acceptance Testing (UAT) and validated system functionality against business requirements</li>
+                </ul>
+            </div>
+
+            <!-- Results Section -->
+            <div class="pocket-section results-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket results-icon-pocket">📊</div>
+                    <h4 class="section-title-pocket">Results</h4>
+                </div>
+                <div class="results-grid-pocket">
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">⚙️</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Automated end-to-end proposal management workflow</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">✓</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Improved data accuracy and consistency</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">⏩</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Enabled faster project allocation decisions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="tags-section-pocket">
+                <div class="tags-grid-pocket">
+                    <span class="tag-pocket">Business Analysis Documentation</span>
+                    <span class="tag-pocket">UML Modelling</span>
+                    <span class="tag-pocket">Requirements Engineering</span>
+                    <span class="tag-pocket">UAT Support</span>
+                    <span class="tag-pocket">Agile Delivery</span>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="toggle-btn-pocket" onclick="togglePocket(this)">
+        <span class="toggle-text-pocket">View Details</span>
+        <span class="toggle-arrow-pocket">▼</span>
     </div>
 </div>
 
-<!-- Project 7: Eye Care Mobile Application -->
-<div class="project-card" data-category="business-analysis">
-    <div class="project-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="16" y="8" width="32" height="48" rx="4" stroke="currentColor" stroke-width="3"/>
+<!-- Eye Care Mobile Application – Illness Detection System -->
+<div class="pocket-card" data-category="business-analysis">
+    <div class="card-front" onclick="togglePocket(this)">
+        <div class="card-header-row">
+            <div class="card-icon-pocket">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="16" y="8" width="32" height="48" rx="4" stroke="currentColor" stroke-width="3"/>
             <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="3"/>
             <path d="M32 24V28M32 36V40M24 32H28M36 32H40" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+                </svg>
+            </div>
+            <div class="card-title-section">
+                <h3 class="pocket-card-title">Eye Care Mobile Application – Illness Detection System</h3>
+                <div class="card-meta-pocket">
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">💼</div>
+                        <span>Sri Lankan Institute of Information Technology (Research Project)</span>
+                    </div>
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">📋</div>
+                        <span>Business Analyst</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="project-content">
-        <h3 class="project-title">Eye Care Mobile Application – Illness Detection System</h3>
-        <div class="project-meta">
-            <span class="meta-item">Sri Lankan Institute of Information Technology (Research Project)</span>
-            <span class="meta-item">Business Analyst</span>
-        </div>
-        <p class="project-description"><strong>Problem:</strong> At the time of development, there were no mobile applications available on the Google Play Store capable of detecting Conjunctivitis, Blepharitis, Cataract, and Chalazion using automated techniques. Access to preliminary eye health assessment was limited, particularly for users seeking convenient, early identification of common eye conditions.</p>
-        <p class="project-description"><strong>What I Did:</strong> Gathered and analysed functional and non-functional requirements through domain research and stakeholder consultation • Defined system workflows and translated requirements into structured system design • Documented use cases, process flows, and validation criteria • Supported testing and validation to ensure accuracy and usability of the solution</p>
-        
-        <div class="project-impact">
-            <div class="impact-item">
-                <span class="impact-icon">🏆</span>
-                <span class="impact-text">First Google Play Store app to detect these eye illnesses</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">🎯</span>
-                <span class="impact-text">Enabled early identification of common eye illnesses</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">📱</span>
-                <span class="impact-text">Improved accessibility to preliminary eye health assessment</span>
-            </div>
-        </div>
 
-        <div class="project-skills">
-            <span class="skill-badge">Requirements Analysis</span>
-            <span class="skill-badge">Process Modelling</span>
-            <span class="skill-badge">System Documentation</span>
-            <span class="skill-badge">Validation</span>
-            <span class="skill-badge">Analytical Thinking</span>
+    <div class="pocket-content">
+        <div class="pocket-inner">
+            <!-- Problem Section -->
+            <div class="pocket-section problem-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket problem-icon-pocket">⚠️</div>
+                    <h4 class="section-title-pocket">Problem</h4>
+                </div>
+                <p class="section-content-pocket">
+                    At the time of development, there were no mobile applications available on the Google Play Store capable of detecting Conjunctivitis, Blepharitis, Cataract, and Chalazion using automated techniques. Access to preliminary eye health assessment was limited, particularly for users seeking convenient, early identification of common eye conditions.
+                </p>
+            </div>
+
+            <!-- What I Did Section -->
+            <div class="pocket-section solution-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket solution-icon-pocket">⚙️</div>
+                    <h4 class="section-title-pocket">What I Did</h4>
+                </div>
+                <ul class="action-list-pocket">
+                    <li>Gathered and analysed functional and non-functional requirements through domain research and stakeholder consultation </li>
+                    <li>Defined system workflows and translated requirements into structured system design </li>
+                    <li>Documented use cases, process flows, and validation criteria </li>
+                    <li>Supported testing and validation to ensure accuracy and usability of the solution</li>
+                </ul>
+            </div>
+
+            <!-- Results Section -->
+            <div class="pocket-section results-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket results-icon-pocket">📊</div>
+                    <h4 class="section-title-pocket">Results</h4>
+                </div>
+                <div class="results-grid-pocket">
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">🏆</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">First Google Play Store app to detect these eye illnesses</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">🎯</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Enabled early identification of common eye illnesses</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">📱</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Improved accessibility to preliminary eye health assessment</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="tags-section-pocket">
+                <div class="tags-grid-pocket">
+                    <span class="tag-pocket">Requirements Analysis</span>
+                    <span class="tag-pocket">Process Modelling</span>
+                    <span class="tag-pocket">System Documentation</span>
+                    <span class="tag-pocket">Validation</span>
+                    <span class="tag-pocket">Analytical Thinking</span>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="toggle-btn-pocket" onclick="togglePocket(this)">
+        <span class="toggle-text-pocket">View Details</span>
+        <span class="toggle-arrow-pocket">▼</span>
     </div>
 </div>
 
-<!-- Project 8: Student Management System -->
-<div class="project-card" data-category="business-analysis">
-    <div class="project-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 28L32 16L56 28L32 40L8 28Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+<!-- Student Management System -->
+<div class="pocket-card" data-category="business-analysis">
+    <div class="card-front" onclick="togglePocket(this)">
+        <div class="card-header-row">
+            <div class="card-icon-pocket">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 28L32 16L56 28L32 40L8 28Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
             <path d="M16 32V44L32 52L48 44V32" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
             <circle cx="32" cy="28" r="4" fill="currentColor"/>
-        </svg>
+                </svg>
+            </div>
+            <div class="card-title-section">
+                <h3 class="pocket-card-title">Student Management System</h3>
+                <div class="card-meta-pocket">
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">💼</div>
+                        <span>Sussex School (Colombo)</span>
+                    </div>
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">📋</div>
+                        <span>Business Analyst</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="project-content">
-        <h3 class="project-title">Student Management System</h3>
-        <div class="project-meta">
-            <span class="meta-item">Sussex School (Colombo)</span>
-            <span class="meta-item">Business Analyst</span>
-        </div>
-        <p class="project-description"><strong>Problem:</strong> Student records, enrollment, and academic tracking were handled across multiple manual systems, leading to data inconsistencies, delays, and poor visibility for administrators and students.</p>
-        <p class="project-description"><strong>What I Did:</strong> • Conducted stakeholder interviews with academic staff, administrators, and students • Gathered and documented functional & non-functional requirements • Created process flows, UML diagrams, and user stories for core modules (enrollment, attendance, grades) • Collaborated with developers to clarify requirements and support Agile sprint delivery • Supported UAT, defect tracking, and final system validation</p>
-        
-        <div class="project-impact">
-            <div class="impact-item">
-                <span class="impact-icon">🎯</span>
-                <span class="impact-text">Centralized student data into single integrated system</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">✓</span>
-                <span class="impact-text">Improved accuracy of academic records</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">⏱️</span>
-                <span class="impact-text">Reduced administrative workload and processing time</span>
-            </div>
-        </div>
 
-        <div class="project-skills">
-            <span class="skill-badge">Business Analysis</span>
-            <span class="skill-badge">Requirements Gathering</span>
-            <span class="skill-badge">UML</span>
-            <span class="skill-badge">User Stories</span>
-            <span class="skill-badge">UAT</span>
-            <span class="skill-badge">Agile Delivery</span>
+    <div class="pocket-content">
+        <div class="pocket-inner">
+            <!-- Problem Section -->
+            <div class="pocket-section problem-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket problem-icon-pocket">⚠️</div>
+                    <h4 class="section-title-pocket">Problem</h4>
+                </div>
+                <p class="section-content-pocket">
+                    Student records, enrollment, and academic tracking were handled across multiple manual systems, leading to data inconsistencies, delays, and poor visibility for administrators and students.
+                </p>
+            </div>
+
+            <!-- What I Did Section -->
+            <div class="pocket-section solution-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket solution-icon-pocket">⚙️</div>
+                    <h4 class="section-title-pocket">What I Did</h4>
+                </div>
+                <ul class="action-list-pocket">
+                    
+                    <li>Conducted stakeholder interviews with academic staff, administrators, and students </li>
+                    <li>Gathered and documented functional & non-functional requirements </li>
+                    <li>Created process flows, UML diagrams, and user stories for core modules (enrollment, attendance, grades) </li>
+                    <li>Collaborated with developers to clarify requirements and support Agile sprint delivery </li>
+                    <li>Supported UAT, defect tracking, and final system validation</li>
+                </ul>
+            </div>
+
+            <!-- Results Section -->
+            <div class="pocket-section results-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket results-icon-pocket">📊</div>
+                    <h4 class="section-title-pocket">Results</h4>
+                </div>
+                <div class="results-grid-pocket">
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">🎯</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Centralized student data into single integrated system</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">✓</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Improved accuracy of academic records</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">⏱️</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Reduced administrative workload and processing time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="tags-section-pocket">
+                <div class="tags-grid-pocket">
+                    <span class="tag-pocket">Business Analysis</span>
+                    <span class="tag-pocket">Requirements Gathering</span>
+                    <span class="tag-pocket">UML</span>
+                    <span class="tag-pocket">User Stories</span>
+                    <span class="tag-pocket">UAT</span>
+                    <span class="tag-pocket">Agile Delivery</span>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="toggle-btn-pocket" onclick="togglePocket(this)">
+        <span class="toggle-text-pocket">View Details</span>
+        <span class="toggle-arrow-pocket">▼</span>
     </div>
 </div>
 
-<!-- Project 9: Ayurvedic Mobile Application -->
-<div class="project-card" data-category="business-analysis">
-    <div class="project-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="16" y="8" width="32" height="48" rx="4" stroke="currentColor" stroke-width="3"/>
+<!-- Ayurvedic Mobile Application -->
+<div class="pocket-card" data-category="business-analysis">
+    <div class="card-front" onclick="togglePocket(this)">
+        <div class="card-header-row">
+            <div class="card-icon-pocket">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="16" y="8" width="32" height="48" rx="4" stroke="currentColor" stroke-width="3"/>
             <path d="M32 20L28 28H36L32 36" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
             <circle cx="28" cy="44" r="2" fill="currentColor"/>
             <circle cx="36" cy="44" r="2" fill="currentColor"/>
-        </svg>
+                </svg>
+            </div>
+            <div class="card-title-section">
+                <h3 class="pocket-card-title">Ayurvedic Mobile Application</h3>
+                <div class="card-meta-pocket">
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">💼</div>
+                        <span>Sri Lankan Institute of Information Technology (Research Project)</span>
+                    </div>
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">📋</div>
+                        <span>Business Analyst</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="project-content">
-        <h3 class="project-title">Ayurvedic Mobile Application</h3>
-        <div class="project-meta">
-            <span class="meta-item">Sri Lankan Institute of Information Technology (Research Project)</span>
-            <span class="meta-item">Business Analyst</span>
-        </div>
-        <p class="project-description"><strong>Problem:</strong> Access to Ayurvedic consultations and treatment information was largely manual, limiting user reach, personalization, and consistent tracking of health data.</p>
-        <p class="project-description"><strong>What I Did:</strong>• Conducted market and user research to identify user needs and pain points • Defined functional requirements for key features such as consultations, remedies, and health tracking • Created user personas, user journeys, and user stories • Worked with UI/UX designers to align business requirements with user experience • Coordinated with development teams and supported UAT for mobile application releases</p>
-        
-        <div class="project-impact">
-            <div class="impact-item">
-                <span class="impact-icon">📱</span>
-                <span class="impact-text">Digitized access to Ayurvedic consultations</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">🎯</span>
-                <span class="impact-text">Improved user engagement through personalization</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">📊</span>
-                <span class="impact-text">Enabled seamless health data tracking</span>
-            </div>
-        </div>
 
-        <div class="project-skills">
-            <span class="skill-badge">Business Analysis</span>
-            <span class="skill-badge">Mobile App Requirements</span>
-            <span class="skill-badge">User Research</span>
-            <span class="skill-badge">User Stories</span>
-            <span class="skill-badge">UAT</span>
-            <span class="skill-badge">Agile Delivery</span>
+    <div class="pocket-content">
+        <div class="pocket-inner">
+            <!-- Problem Section -->
+            <div class="pocket-section problem-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket problem-icon-pocket">⚠️</div>
+                    <h4 class="section-title-pocket">Problem</h4>
+                </div>
+                <p class="section-content-pocket">
+                    Access to Ayurvedic consultations and treatment information was largely manual, limiting user reach, personalization, and consistent tracking of health data.
+                </p>
+            </div>
+
+            <!-- What I Did Section -->
+            <div class="pocket-section solution-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket solution-icon-pocket">⚙️</div>
+                    <h4 class="section-title-pocket">What I Did</h4>
+                </div>
+                <ul class="action-list-pocket">
+                    <li>Conducted market and user research to identify user needs and pain points </li>
+                    <li>Defined functional requirements for key features such as consultations, remedies, and health tracking </li>
+                    <li>Created user personas, user journeys, and user stories </li>
+                    <li>Worked with UI/UX designers to align business requirements with user experience </li>
+                    <li>Coordinated with development teams and supported UAT for mobile application releases</li>
+                </ul>
+            </div>
+
+            <!-- Results Section -->
+            <div class="pocket-section results-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket results-icon-pocket">📊</div>
+                    <h4 class="section-title-pocket">Results</h4>
+                </div>
+                <div class="results-grid-pocket">
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">📱</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Digitized access to Ayurvedic consultations</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">🎯</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Improved user engagement through personalization</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">📊</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Enabled seamless health data tracking</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="tags-section-pocket">
+                <div class="tags-grid-pocket">
+                    <span class="tag-pocket">Business Analysis</span>
+                    <span class="tag-pocket">Mobile App Requirements</span>
+                    <span class="tag-pocket">User Research</span>
+                    <span class="tag-pocket">User Stories</span>
+                    <span class="tag-pocket">UAT</span>
+                    <span class="tag-pocket">Agile Delivery</span>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="toggle-btn-pocket" onclick="togglePocket(this)">
+        <span class="toggle-text-pocket">View Details</span>
+        <span class="toggle-arrow-pocket">▼</span>
     </div>
 </div>
 
-<!-- Project 10: Enterprise QA – MDS Global, Aviva, Seniorlink -->
-<div class="project-card" data-category="qa">
-    <div class="project-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="3"/>
+<!-- Enterprise QA – MDS Global, Aviva, Seniorlink -->
+<div class="pocket-card" data-category="qa">
+    <div class="card-front" onclick="togglePocket(this)">
+        <div class="card-header-row">
+            <div class="card-icon-pocket">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="3"/>
             <path d="M32 20V32L40 40" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
             <path d="M20 44L28 36" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+                </svg>
+            </div>
+            <div class="card-title-section">
+                <h3 class="pocket-card-title">Enterprise QA – MDS Global, Aviva, Seniorlink</h3>
+                <div class="card-meta-pocket">
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">💼</div>
+                        <span>Virtusa (Client engagements)</span>
+                    </div>
+                    <div class="meta-item-pocket">
+                        <div class="icon-badge-pocket">✅</div>
+                        <span>Quality Assurance Engineer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="project-content">
-        <h3 class="project-title">Enterprise QA – MDS Global, Aviva, Seniorlink</h3>
-        <div class="project-meta">
-            <span class="meta-item">Virtusa (Client engagements)</span>
-            <span class="meta-item">Quality Assurance Engineer</span>
-        </div>
-        <p class="project-description"><strong>Clients:</strong> <a href="https://mdsglobal.com/" target="_blank" rel="noopener">MDS Global</a> • <a href="https://www.aviva.com/" target="_blank" rel="noopener">Aviva</a> • <a href="https://www.seniorlink.me/" target="_blank" rel="noopener">Seniorlink</a></p>
-        <p class="project-description"><strong>Problem:</strong> Enterprise platforms across telecom, insurance, and care-management required high reliability across complex integrations, with strict quality gates for production releases and minimal tolerance for defects in customer-facing systems.</p>
-        <p class="project-description"><strong>What I Did:</strong> Executed functional, regression, API, and UAT testing across multiple enterprise client programs • Designed and maintained comprehensive test cases, test plans, and traceability matrices • Conducted API testing using Postman and validated backend integrations • Collaborated with cross-functional teams to clarify requirements, reproduce defects, and validate fixes • Supported release cycles by prioritizing critical defects and ensuring quality gates were met before production deployment</p>
-        
-        <div class="project-impact">
-            <div class="impact-item">
-                <span class="impact-icon">✅</span>
-                <span class="impact-text">Executed 3,000+ test cases across enterprise programs</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">📉</span>
-                <span class="impact-text">Reduced production defects by 40%</span>
-            </div>
-            <div class="impact-item">
-                <span class="impact-icon">🎯</span>
-                <span class="impact-text">Improved defect detection efficiency by 8%</span>
-            </div>
-        </div>
 
-        <div class="project-skills">
-            <span class="skill-badge">Enterprise QA</span>
-            <span class="skill-badge">Test Planning</span>
-            <span class="skill-badge">Regression Testing</span>
-            <span class="skill-badge">API Testing</span>
-            <span class="skill-badge">UAT</span>
-            <span class="skill-badge">Defect Management</span>
-            <span class="skill-badge">Release Support</span>
+    <div class="pocket-content">
+        <div class="pocket-inner">
+            <!-- Problem Section -->
+            <div class="pocket-section problem-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket problem-icon-pocket">⚠️</div>
+                    <h4 class="section-title-pocket">Problem</h4>
+                </div>
+                <p class="section-content-pocket">
+                    Enterprise platforms across telecom, insurance, and care-management required high reliability across complex integrations, with strict quality gates for production releases and minimal tolerance for defects in customer-facing systems.
+                </p>
+            </div>
+
+            <!-- What I Did Section -->
+            <div class="pocket-section solution-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket solution-icon-pocket">⚙️</div>
+                    <h4 class="section-title-pocket">What I Did</h4>
+                </div>
+                <ul class="action-list-pocket">
+                    <li>Executed functional, regression, API, and UAT testing across multiple enterprise client programs </li>
+                    <li>Designed and maintained comprehensive test cases, test plans, and traceability matrices </li>
+                    <li>Conducted API testing using Postman and validated backend integrations </li>
+                    <li>Collaborated with cross-functional teams to clarify requirements, reproduce defects, and validate fixes </li>
+                    <li>Supported release cycles by prioritizing critical defects and ensuring quality gates were met before production deployment</li>
+                </ul>
+            </div>
+
+            <!-- Results Section -->
+            <div class="pocket-section results-section">
+                <div class="section-header-row">
+                    <div class="section-icon-pocket results-icon-pocket">📊</div>
+                    <h4 class="section-title-pocket">Results</h4>
+                </div>
+                <div class="results-grid-pocket">
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">✅</div>
+                        <div class="result-text-pocket">
+                            <div class="result-value-pocket">Executed 3,000+ test cases across enterprise programs</div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">📉</div>
+                        <div class="result-text-pocket">
+                            <div class="result-label-pocket">Reduced production defects</div>
+                            <div class="result-value-pocket"><span class="result-highlight-pocket">40%</span></div>
+                        </div>
+                    </div>
+                    <div class="result-card-pocket">
+                        <div class="result-icon-pocket">🎯</div>
+                        <div class="result-text-pocket">
+                            <div class="result-label-pocket">Improved defect detection efficiency</div>
+                            <div class="result-value-pocket"><span class="result-highlight-pocket">8%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="tags-section-pocket">
+                <div class="tags-grid-pocket">
+                    <span class="tag-pocket">Enterprise QA</span>
+                    <span class="tag-pocket">Test Planning</span>
+                    <span class="tag-pocket">Regression Testing</span>
+                    <span class="tag-pocket">API Testing</span>
+                    <span class="tag-pocket">UAT</span>
+                    <span class="tag-pocket">Defect Management</span>
+                    <span class="tag-pocket">Release Support</span>
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="toggle-btn-pocket" onclick="togglePocket(this)">
+        <span class="toggle-text-pocket">View Details</span>
+        <span class="toggle-arrow-pocket">▼</span>
+    </div>
+</div>
+
 </div>
 
 
@@ -1012,7 +1492,7 @@
             <div class="prof-dev-content">
                 <!-- Left Column: Power BI Journey -->
                 <div class="prof-dev-left">
-                    <h2 class="section-title">Where Curiosity Met Analytics: My Power BI Journey</h2>
+                    <h2 class="section-title power-bi-journey-title">Where Curiosity Met Analytics: My Power BI Journey</h2>
                     <p class="prof-dev-intro">
                         A short story about why I learned Power BI, how I mastered it, and the business value I focus on as a Business Analyst.
                     </p>
@@ -1065,10 +1545,10 @@
                 <div class="prof-dev-right">
                     <!-- Stats Cards -->
                     <div class="powerbi-stats-grid">
-                        <div class="powerbi-stat-card">
+                       <!-- <div class="powerbi-stat-card">
                             <div class="stat-number">100+</div>
                             <div class="stat-label">Dashboards Built</div>
-                        </div>
+                        </div>-->
                         <div class="powerbi-stat-card">
                             <div class="stat-number">50+</div>
                             <div class="stat-label">Hours of Mentorship</div>
@@ -1725,7 +2205,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <a href="/cdn-cgi/l/email-protection#2669554e4f08524e47544748414766414b474f4a0845494b"><span class="__cf_email__" data-cfemail="4b04382322653f232a392a252c2a0b2c262a222765282426"><span class="__cf_email__" data-cfemail="d29da1babbfca6bab3a0b3bcb5b392b5bfb3bbbefcb1bdbf">[email&#160;protected]</span></span></a>
+                            <a href="/cdn-cgi/l/email-protection#2669554e4f08524e47544748414766414b474f4a0845494b"><span class="__cf_email__" data-cfemail="4b04382322653f232a392a252c2a0b2c262a222765282426"><span class="__cf_email__" data-cfemail="d29da1babbfca6bab3a0b3bcb5b392b5bfb3bbbefcb1bdbf">Oshi.tharanga@gmail.com</span></span></a>
                         </div>
                     </div>
 
