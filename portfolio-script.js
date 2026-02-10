@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // PROJECT FILTERING
     // ============================================
     const filterTabs = document.querySelectorAll('.filter-tab');
-    const projectCards = document.querySelectorAll('.project-card');
+    const projectCards = document.querySelectorAll('.project-card, .pocket-card');
     
     filterTabs.forEach(tab => {
         tab.addEventListener('click', function() {
@@ -2157,3 +2157,208 @@ if (document.readyState === 'loading') {
 } else {
     initPowerBIProjects();
 }
+
+/* ============================================
+   POCKET CARD TOGGLE FUNCTION
+   ============================================ */
+function togglePocket(element) {
+    // Find the parent pocket card
+    const pocketCard = element.closest('.pocket-card');
+    if (!pocketCard) return;
+    
+    const isExpanded = pocketCard.classList.contains('expanded');
+    
+    // Close all other pockets
+    document.querySelectorAll('.pocket-card.expanded').forEach(card => {
+        if (card !== pocketCard) {
+            card.classList.remove('expanded');
+            const toggleText = card.querySelector('.toggle-text-pocket');
+            if (toggleText) {
+                toggleText.textContent = 'View Details';
+            }
+        }
+    });
+    
+    // Toggle current pocket
+    pocketCard.classList.toggle('expanded');
+    
+    // Update button text
+    const toggleText = pocketCard.querySelector('.toggle-text-pocket');
+    if (toggleText) {
+        if (pocketCard.classList.contains('expanded')) {
+            toggleText.textContent = 'Hide Details';
+        } else {
+            toggleText.textContent = 'View Details';
+        }
+    }
+    
+    // Smooth scroll to card if expanding
+    if (!isExpanded) {
+        setTimeout(() => {
+            pocketCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    }
+}
+/* ============================================================================
+   PORTFOLIO-SCRIPT.JS - මෙතන code add කරන්න ඕනේ
+   ============================================================================ */
+
+/* 
+   STEP 1: Open your portfolio-script.js file
+   ════════════════════════════════════════════════════════════════════════
+*/
+
+// ... existing code පස්සේ (file එකේ end එකේ) මේ code එක add කරන්න
+
+
+// ══════════════════════════════════════════════════════════════════════════
+// HORIZONTAL GALLERY NAVIGATION - START
+// ══════════════════════════════════════════════════════════════════════════
+
+// Horizontal Gallery Navigation System
+(function() {
+    // Wait for DOM to be ready
+    document.addEventListener('DOMContentLoaded', function() {
+        const gallery = document.getElementById('projectGallery');
+        const prevBtn = document.querySelector('.gallery-prev');
+        const nextBtn = document.querySelector('.gallery-next');
+        const indicatorsContainer = document.getElementById('galleryIndicators');
+        
+        // Exit if gallery not found
+        if (!gallery) return;
+        
+        const cards = gallery.querySelectorAll('.gallery-project-card');
+        
+        // Get card width dynamically (responsive)
+        function getCardWidth() {
+            return cards[0]?.offsetWidth || 900;
+        }
+        
+        // Get gap between cards from CSS
+        function getGap() {
+            const style = window.getComputedStyle(gallery);
+            return parseInt(style.gap) || 40;
+        }
+        
+        // Create indicator dots
+        function createIndicators() {
+            indicatorsContainer.innerHTML = '';
+            cards.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('gallery-indicator-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.setAttribute('aria-label', `Go to project ${index + 1}`);
+                dot.addEventListener('click', () => scrollToCard(index));
+                indicatorsContainer.appendChild(dot);
+            });
+        }
+        
+        // Update active indicator on scroll
+        function updateIndicators() {
+            const scrollLeft = gallery.scrollLeft;
+            const cardWidth = getCardWidth();
+            const gap = getGap();
+            const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
+            
+            const dots = indicatorsContainer.querySelectorAll('.gallery-indicator-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeIndex);
+            });
+        }
+        
+        // Scroll to specific card
+        function scrollToCard(index) {
+            const cardWidth = getCardWidth();
+            const gap = getGap();
+            const scrollPosition = index * (cardWidth + gap);
+            gallery.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Previous button handler
+        prevBtn?.addEventListener('click', () => {
+            const scrollLeft = gallery.scrollLeft;
+            const cardWidth = getCardWidth();
+            const gap = getGap();
+            const currentIndex = Math.round(scrollLeft / (cardWidth + gap));
+            const newIndex = Math.max(0, currentIndex - 1);
+            scrollToCard(newIndex);
+        });
+        
+        // Next button handler
+        nextBtn?.addEventListener('click', () => {
+            const scrollLeft = gallery.scrollLeft;
+            const cardWidth = getCardWidth();
+            const gap = getGap();
+            const currentIndex = Math.round(scrollLeft / (cardWidth + gap));
+            const maxIndex = cards.length - 1;
+            const newIndex = Math.min(maxIndex, currentIndex + 1);
+            scrollToCard(newIndex);
+        });
+        
+        // Update indicators on scroll
+        gallery.addEventListener('scroll', updateIndicators);
+        
+        // Initialize indicators
+        createIndicators();
+        
+        // Keyboard navigation
+        gallery.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevBtn?.click();
+            } else if (e.key === 'ArrowRight') {
+                nextBtn?.click();
+            }
+        });
+        
+        // Mouse drag to scroll
+        let isDown = false;
+        let startX;
+        let scrollLeftStart;
+        
+        gallery.addEventListener('mousedown', (e) => {
+            isDown = true;
+            gallery.style.cursor = 'grabbing';
+            startX = e.pageX - gallery.offsetLeft;
+            scrollLeftStart = gallery.scrollLeft;
+        });
+        
+        gallery.addEventListener('mouseleave', () => {
+            isDown = false;
+            gallery.style.cursor = 'grab';
+        });
+        
+        gallery.addEventListener('mouseup', () => {
+            isDown = false;
+            gallery.style.cursor = 'grab';
+        });
+        
+        gallery.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - gallery.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            gallery.scrollLeft = scrollLeftStart - walk;
+        });
+        
+        // Set initial cursor
+        gallery.style.cursor = 'grab';
+    });
+})();
+
+// ══════════════════════════════════════════════════════════════════════════
+// HORIZONTAL GALLERY NAVIGATION - END
+// ══════════════════════════════════════════════════════════════════════════
+
+
+/* 
+   STEP 2: Save the file
+   ════════════════════════════════════════════════════════════════════════
+   
+   That's it! The gallery JavaScript is now added.
+   
+   Note: This code is wrapped in an IIFE (Immediately Invoked Function Expression)
+   so it won't conflict with any other JavaScript in your file.
+*/
