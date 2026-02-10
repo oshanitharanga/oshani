@@ -131,14 +131,15 @@ button {
     top: 0;
     left: 0;
     right: 0;
-    background: var(--nav-bg);
-    box-shadow: 0 2px 12px rgba(11, 27, 58, 0.3);
+    background: linear-gradient(135deg, #001f3f 0%, #0074D9 50%, #87CEEB 100%);
+    box-shadow: 0 4px 20px rgba(0, 31, 63, 0.5);
     z-index: 1000;
     transition: all var(--transition-base);
+    backdrop-filter: blur(10px);
 }
 
 .navbar.scrolled {
-    box-shadow: 0 4px 20px rgba(11, 27, 58, 0.4);
+    box-shadow: 0 6px 25px rgba(0, 31, 63, 0.6);
 }
 
 .nav-container {
@@ -662,8 +663,10 @@ button {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    grid-template-columns: 1fr;
     gap: var(--spacing-xl);
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .project-card {
@@ -677,6 +680,348 @@ button {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+}
+
+/* ============================================
+   POCKET CARD STYLES (New Expandable Design)
+   ============================================ */
+.pocket-card {
+    background: var(--color-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    margin-bottom: 24px;
+    transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+}
+
+.pocket-card.hidden {
+    display: none;
+}
+
+/* Card Front (Always Visible) */
+.card-front {
+    background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+    padding: 32px;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border-radius: 20px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+}
+
+.card-front:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-header-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.card-icon-pocket {
+    width: 64px;
+    height: 64px;
+    background: var(--color-white);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(91, 108, 242, 0.15);
+    color: var(--color-primary);
+}
+
+.card-icon-pocket svg {
+    width: 40px;
+    height: 40px;
+}
+
+.card-title-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pocket-card-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-meta-pocket {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.meta-item-pocket {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+.icon-badge-pocket {
+    width: 20px;
+    height: 20px;
+    background: var(--color-white);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+/* Expandable Pocket Content */
+.pocket-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--color-white);
+}
+
+.pocket-card.expanded .pocket-content {
+    max-height: 2000px;
+}
+
+.pocket-inner {
+    padding: 32px;
+    padding-top: 24px;
+}
+
+/* Sections within pocket */
+.pocket-section {
+    margin-bottom: 28px;
+}
+
+.pocket-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-header-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.section-icon-pocket {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.problem-icon-pocket {
+    background: #fee2e2;
+}
+
+.solution-icon-pocket {
+    background: #dbeafe;
+}
+
+.results-icon-pocket {
+    background: #d1fae5;
+}
+
+.section-title-pocket {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.section-content-pocket {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.action-list-pocket {
+    list-style: none;
+    margin-top: 12px;
+}
+
+.action-list-pocket li {
+    padding: 10px 0;
+    padding-left: 32px;
+    position: relative;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+.action-list-pocket li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary);
+    border-radius: 4px;
+}
+
+.action-list-pocket li::after {
+    content: '✓';
+    position: absolute;
+    left: 5px;
+    top: 12px;
+    color: var(--color-white);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Results Grid */
+.results-grid-pocket {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.result-card-pocket {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid var(--color-border);
+}
+
+.result-icon-pocket {
+    width: 48px;
+    height: 48px;
+    background: var(--color-white);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.result-text-pocket {
+    flex: 1;
+}
+
+.result-label-pocket {
+    color: var(--color-text-light);
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+}
+
+.result-value-pocket {
+    color: var(--color-text-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.result-highlight-pocket {
+    color: var(--color-primary);
+    font-size: 1.3rem;
+}
+
+/* Tags */
+.tags-section-pocket {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 2px solid #f1f5f9;
+}
+
+.tags-grid-pocket {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag-pocket {
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.tag-alt-pocket {
+    background: #e0e7ff;
+    color: var(--color-primary);
+}
+
+/* Toggle Button */
+.toggle-btn-pocket {
+    text-align: center;
+    padding: 14px 16px;
+    background: var(--color-white);
+    color: var(--color-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border-top: 2px solid #f1f5f9;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-btn-pocket:hover {
+    background: #f8fafc;
+}
+
+.toggle-arrow-pocket {
+    display: inline-block;
+    margin-left: 8px;
+    transition: transform var(--transition-base);
+}
+
+.pocket-card.expanded .toggle-arrow-pocket {
+    transform: rotate(180deg);
+}
+
+/* Responsive adjustments for pocket cards */
+@media (max-width: 768px) {
+    .card-front {
+        padding: 24px;
+    }
+    
+    .pocket-inner {
+        padding: 24px;
+    }
+    
+    .pocket-card-title {
+        font-size: 1.25rem;
+    }
+    
+    .card-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .card-icon-pocket {
+        width: 56px;
+        height: 56px;
+    }
 }
 
 .project-card::before {
@@ -1817,9 +2162,10 @@ body.modal-open {
    FOOTER
    ============================================ */
 .footer {
-    background: var(--color-text-primary);
+    background: linear-gradient(135deg, #001f3f 0%, #0074D9 50%, #87CEEB 100%);
     color: var(--color-white);
     padding: var(--spacing-xl) var(--spacing-md);
+    box-shadow: 0 -4px 20px rgba(0, 31, 63, 0.3);
 }
 
 .footer-content {
@@ -2291,6 +2637,11 @@ button:focus-visible {
     color: var(--color-white);
     font-size: 2.5rem;
     margin-bottom: var(--spacing-md);
+}
+
+.prof-dev-left .power-bi-journey-title {
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .prof-dev-intro {
@@ -5331,44 +5682,43 @@ button:focus-visible {
 /* ============================================
    SAMPLE PROJECTS SECTION (VIDEO CARDS)
    ============================================ */
-.sample-projects-section {
-    padding: var(--spacing-3xl) var(--spacing-md);
-    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #EFF6FF 100%);
-    color: var(--color-text-primary);
+/* ============================================================================
+   HORIZONTAL GALLERY CSS - MINIMAL VERSION
+   Add this to your portfolio-styles.css file (replace .sample-projects-grid)
+   ============================================================================ */
+
+/* Gallery Wrapper */
+.horizontal-gallery-wrapper {
     position: relative;
-    overflow: hidden;
-}
-
-.sample-projects-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-.sample-projects-section .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
-}
-
-.sample-projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-xl);
-    align-items: start;
-    position: relative;
-    z-index: 1;
     width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 60px;
 }
 
-.project-card-new {
+/* Gallery Container */
+.horizontal-gallery {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 20px 0 40px 0;
+}
+
+.horizontal-gallery::-webkit-scrollbar {
+    display: none;
+}
+
+/* Gallery Cards - ONE CARD AT A TIME */
+.gallery-project-card {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 900px;
+    scroll-snap-align: center;
     background: var(--color-white);
     border-radius: var(--radius-xl);
     overflow: hidden;
@@ -5378,12 +5728,10 @@ button:focus-visible {
     position: relative;
     display: flex;
     flex-direction: column;
-    animation: fadeInUp 0.8s ease-out;
-    width: 100%;
-    min-width: 0; /* Allow cards to shrink properly */
 }
 
-.project-card-new::before {
+/* Top border animation on hover */
+.gallery-project-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -5397,37 +5745,26 @@ button:focus-visible {
     z-index: 2;
 }
 
-.project-card-new:hover::before {
+.gallery-project-card:hover::before {
     transform: scaleX(1);
 }
 
-.project-card-new:hover {
+.gallery-project-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 40px rgba(59, 130, 246, 0.2);
     border-color: var(--color-primary);
 }
 
+/* Video Container */
 .project-video-preview {
     position: relative;
     width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
+    aspect-ratio: 16 / 9;
     background: #000;
     overflow: hidden;
 }
 
-/* Alternative: Use aspect-ratio for automatic sizing (modern browsers) */
-@supports (aspect-ratio: 16 / 9) {
-    .project-video-preview {
-        height: auto;
-        padding-bottom: 0;
-        aspect-ratio: 16 / 9;
-    }
-}
-
-.project-video,
-.project-video-gdrive,
-.project-video-youtube {
+.project-video-gdrive {
     position: absolute;
     top: 0;
     left: 0;
@@ -5437,51 +5774,7 @@ button:focus-visible {
     display: block;
 }
 
-/* Override for modern browsers with aspect-ratio support */
-@supports (aspect-ratio: 16 / 9) {
-    .project-video,
-    .project-video-gdrive,
-    .project-video-youtube {
-        position: relative;
-    }
-}
-
-.video-play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 64px;
-    height: 64px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all var(--transition-base);
-    border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-}
-
-.video-play-btn:hover {
-    background: var(--color-white);
-    transform: translate(-50%, -50%) scale(1.1);
-}
-
-.video-play-btn svg {
-    width: 24px;
-    height: 24px;
-    color: var(--color-primary);
-    margin-left: 3px;
-}
-
-.project-video.playing + .video-play-btn {
-    opacity: 0;
-    pointer-events: none;
-}
-
+/* Card Content */
 .project-card-content {
     padding: var(--spacing-xl);
     display: flex;
@@ -5500,41 +5793,144 @@ button:focus-visible {
 }
 
 .project-card-description {
-    font-size: 0.95rem;
-    line-height: 1.6;
     color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
     flex: 1;
 }
 
 .project-see-more {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-top: auto;
-    padding: var(--spacing-sm) var(--spacing-md);
-    background: var(--color-primary);
+    color: var(--color-primary);
+    font-weight: 600;
+    background: none;
     border: none;
-    border-radius: var(--radius-sm);
-    color: var(--color-white);
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-fast);
-    text-align: left;
-    align-self: flex-start;
+    transition: all var(--transition-base);
+    font-size: 1rem;
+    padding: 0;
 }
 
 .project-see-more:hover {
-    background: var(--color-primary-dark);
+    color: var(--color-primary-dark);
     transform: translateX(4px);
 }
 
-.project-see-more:focus {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-    border-radius: var(--radius-sm);
+/* Navigation Arrows */
+.gallery-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: var(--color-white);
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-nav-btn:hover {
+    background: var(--color-primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-nav-btn:hover svg {
+    color: white;
+}
+
+.gallery-nav-btn svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+.gallery-prev {
+    left: 0;
+}
+
+.gallery-next {
+    right: 0;
+}
+
+/* Indicator Dots */
+.gallery-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.gallery-indicator-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #D1D5DB;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+.gallery-indicator-dot:hover {
+    background: #9CA3AF;
+    transform: scale(1.2);
+}
+
+.gallery-indicator-dot.active {
+    background: var(--color-primary);
+    width: 32px;
+    border-radius: 6px;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+    .horizontal-gallery-wrapper {
+        padding: 0 48px;
+    }
+
+    .gallery-project-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .gallery-nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .gallery-nav-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+    .horizontal-gallery-wrapper {
+        padding: 0 36px;
+    }
+
+    .gallery-nav-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .gallery-indicator-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .gallery-indicator-dot.active {
+        width: 24px;
+    }
 }
 
 /* ============================================
