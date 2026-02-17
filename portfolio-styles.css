@@ -968,7 +968,121 @@ button {
     background: #e0e7ff;
     color: var(--color-primary);
 }
+/* Documents Section */
+.documents-section {
+    margin-top: 1.5rem;
+}
 
+.documents-icon-pocket {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.documents-grid-pocket {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 0.5rem;
+}
+
+.document-link-pocket {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.document-link-pocket:hover {
+    background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+    border-color: var(--color-primary);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+.document-icon-pocket {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    background: var(--color-primary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.document-icon-pocket svg {
+    width: 20px;
+    height: 20px;
+    color: white;
+}
+
+.document-link-pocket:hover .document-icon-pocket {
+    background: #4f46e5;
+    transform: scale(1.05);
+}
+
+.document-text-pocket {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.document-title-pocket {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-heading);
+}
+
+.document-badge-pocket {
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.document-arrow-pocket {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    transition: transform 0.3s ease;
+    opacity: 0.6;
+}
+
+.document-link-pocket:hover .document-arrow-pocket {
+    transform: translateX(4px);
+    opacity: 1;
+}
+
+@media (max-width: 480px) {
+    .document-link-pocket {
+        padding: 12px 14px;
+    }
+    
+    .document-icon-pocket {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+    }
+    
+    .document-icon-pocket svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .document-title-pocket {
+        font-size: 0.9rem;
+    }
+    
+    .document-badge-pocket {
+        font-size: 0.75rem;
+    }
+}
 /* Toggle Button */
 .toggle-btn-pocket {
     text-align: center;
